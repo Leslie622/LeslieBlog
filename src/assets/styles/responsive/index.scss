@@ -1,0 +1,51 @@
+/*
+* 常见设备的逻辑（css）像素：
+*    手机：
+*      320px:[iPhone4]
+*      375px:[iPhone678,iPhoneX]
+*      411px:[Pixel2]
+*      414px:[iPhone678p,oneplus7p]
+*    小平板：
+*     768px:[iPad]
+*    大平板：
+*      1024px:[iPadPro]
+*    PC:
+*      1400px
+*
+*/
+
+// ======字体适配======
+// 逻辑像素 ≥ 320px
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+// 逻辑像素 ≥ 375px
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+// 逻辑像素 ≥ 410px
+@media screen and (min-width: 411px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+// 逻辑像素 ≥ 768px
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+// 逻辑像素 ≥ 1400px
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 16px;
+  }
+}

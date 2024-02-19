@@ -1,6 +1,6 @@
 import NProgress from "nprogress"
 import 'nprogress/nprogress.css'
-import "@/assets/styles/nprogress.scss"
+import "@/assets/styles/nprogress/nprogress.scss"
 
 //全局进度条的配置
 NProgress.configure({

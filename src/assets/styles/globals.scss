@@ -1,4 +1,14 @@
 /* 
  * 全局样式
  */
+@import "./theme/dark.scss";
+@import "./theme/light.scss";
 
+//响应式
+@import "./responsive/index.scss";
+
+//字体
+@font-face {
+  font-family: "Monoton-Regular";
+  src: url("@/assets/fonts/Monoton-Regular.ttf");
+}
