@@ -54,7 +54,7 @@ watch(
 <style>
 body {
   /* 避免动画过程中出现水平方向的滚动条 */
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .slide-left-enter-active,
