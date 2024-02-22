@@ -1,66 +1,69 @@
 <template>
-  <div class="wrapper">
-    <div class="content">
-      <header class="header" :class="{ 'header-active': headerActive }">
-        <div class="header-inner">
-          <div class="block">
+  <div class="blog">
+    <div class="blog__content">
+      <header class="content__header" :class="{ 'header--active': headerActive }">
+        <div class="header__inner">
+          <div class="inner__block">
             <div class="switch">
-              <div class="switch-btn" @click="headerSwitch">
+              <div class="switch__btn" @click="headerActive = !headerActive">
                 <div>
-                  <span class="Switchicon"></span>
-                  <span class="Switchicon"></span>
-                  <span class="Switchicon"></span>
+                  <span class="switch__icon"></span>
+                  <span class="switch__icon"></span>
+                  <span class="switch__icon"></span>
                 </div>
               </div>
-              <div class="brand">
+              <div class="logo">
                 <p>LESLIE BLOG</p>
               </div>
             </div>
+            <blog-config></blog-config>
           </div>
-          <div class="block"></div>
+          <div class="inner__block"></div>
         </div>
       </header>
-      <div class="blog">
-        <router-view class="publicWrapper" />
+      <div class="router-view">
+        <router-view class="router-view__wrapper" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const headerActive = ref(false)
-function headerSwitch() {
-  headerActive.value = !headerActive.value
-}
+import BlogConfig from './BlogConfig/index.vue'
+
+const headerActive = ref<boolean>(false)
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.blog {
   min-height: 100vh;
-  background-color: #eee;
+  background-color: var(--blog-backgorund);
+  transition: background-color 0.5s;
   overflow: hidden;
 }
 
-.content {
+.blog__content {
   margin: 0 auto;
   width: 1200px; //版心
 }
 
-.header {
+.content__header {
   position: sticky;
   top: 0;
-  z-index: 1;
   height: 0;
 
-  .header-inner {
+  .header__inner {
     width: 240px;
-    font-size: 12px;
+    font-size: 14px;
 
-    //组块
-    .block {
-      height: 200px;
+    .inner__block {
       margin-bottom: 10px;
-      background-color: white;
+      padding-bottom: 5px;
+      background-color: var(--blog-block-color);
+      box-shadow: var(--boxShadow);
+      transition:
+        background-color 0.5s,
+        box-shadow 0.5s;
     }
 
     .switch {
@@ -69,38 +72,41 @@ function headerSwitch() {
       justify-content: center;
       height: 130px;
       color: #fff;
-      background-color: #222;
+      background-color: var(--logo-backgorund);
+      transition: background-color 0.5s;
 
-      .switch-btn {
+      .switch__btn {
         position: absolute;
         display: none;
-        align-items: center;
-        justify-content: center;
+
         left: 20px;
         width: 40px;
         height: 40px;
         cursor: pointer;
 
-        .Switchicon {
+        .switch__icon {
           display: block;
           padding: 3px 0;
-          transition: transform 0.2s ease;
+          transition: transform 0.2s ease 0.1s;
         }
 
-        .Switchicon::before {
+        .switch__icon:nth-child(2) {
+          opacity: 1;
+          transition: opacity 0.2s ease 0.1s;
+        }
+
+        .switch__icon::before {
           content: '';
           display: block;
           width: 28px;
           height: 2px;
           border-radius: 2px;
           background-color: #fff;
-          transition:
-            transform 0.2s ease 0.1s,
-            background-color 0.3s ease;
+          transition: transform 0.1s ease;
         }
       }
 
-      .brand {
+      .logo {
         font-family: Arial;
         font-size: 1.3rem;
       }
@@ -108,85 +114,104 @@ function headerSwitch() {
   }
 }
 
-.header.header-active {
+.content__header.header--active {
   // 这里的高度需要大于头部内容总高度，从而通过max-height实现不定高过渡动画
   max-height: 500px;
-  // switch的动画
-  .Switchicon:nth-child(1) {
+  /**
+   * switch的动画
+   * 位移直接过渡，过渡时间为0.2s，旋转等待位移过渡完成，等待时间为0.2s 过渡时间为0.1s
+   */
+  .switch__icon:nth-child(1) {
     transform: translateY(8px);
+    transition: transform 0.2s ease !important;
   }
-  .Switchicon:nth-child(1)::before {
+  .switch__icon:nth-child(1)::before {
     transform: rotate(45deg);
+    transition: transform 0.1s ease 0.2s !important;
   }
-  .Switchicon:nth-child(2) {
-    opacity: 0;
-    transition: none;
+  .switch__icon:nth-child(2) {
+    opacity: 0 !important;
+    // transition: opacity 0.2s ease  !important;
   }
-  .Switchicon:nth-child(3) {
+  .switch__icon:nth-child(3) {
     transform: translateY(-8px);
+    transition: transform 0.2s ease !important;
   }
-  .Switchicon:nth-child(3)::before {
+  .switch__icon:nth-child(3)::before {
     transform: rotate(-45deg);
+    transition: transform 0.1s ease 0.2s !important;
   }
 }
 
-.blog {
+.router-view {
   margin-left: 240px;
+
+  .router-view__wrapper {
+    box-sizing: border-box;
+    padding: 0 10px 10px;
+    max-height: 100vh;
+    overflow: auto;
+  }
 }
 
-.publicWrapper {
-  box-sizing: border-box;
-  padding: 0 10px 10px;
-  max-height: 100vh;
-  overflow: auto;
-}
+/**
+ * —————————————— 响应式 ——————————————
+ */
 
-// ========响应式========
-
-//窗口宽度小于1024px：版心缩小
-@media screen and (max-width: 1024px) {
-  .content {
+//窗口宽度小于1200px
+@media screen and (max-width: 1200px) {
+  //版心缩小到1024px
+  .blog__content {
     width: 1024px;
   }
 }
 
-//窗口宽度小于1000时：版心100%
-@media screen and (max-width: 1000px) {
-  .content {
+//窗口宽度小于1000px
+@media screen and (max-width: 1024px) {
+  //版心100%
+  .blog__content {
     width: 100%;
   }
 
-  .header {
+  //header高度调整
+  .content__header {
     height: auto;
     max-height: 80px;
     overflow: hidden;
-    transition: max-height 0.4s;
+    transition: max-height 0.5s;
 
-    .header-inner {
+    .header__inner {
       width: 100%;
-      border-bottom: 2px solid rgb(228, 228, 228);
 
-      .block {
+      .inner__block {
         margin-bottom: 0;
         box-shadow: none;
+
+        .config__content {
+          padding: 0 2rem;
+        }
       }
 
       .switch {
         height: 80px;
-        .switch-btn {
+        .switch__btn {
           display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
   }
 
-  .blog {
+  .router-view {
     margin-left: 0;
-  }
 
-  .publicWrapper {
-    padding: 0.5rem;
-    max-height: calc(100vh - 80px);
+    .router-view__wrapper {
+      padding: 0.5rem;
+      max-height: calc(100vh - 80px);
+    }
   }
 }
+
+
 </style>

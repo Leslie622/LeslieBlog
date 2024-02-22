@@ -28,11 +28,12 @@ function switchTheme() {
 
 <style lang="scss" scoped>
 .switch-btn {
+  z-index: 999;
   position: absolute;
   top: 0.8rem;
   right: 0.8rem;
   padding: 1rem;
-  color: var(--base-color);
+  color: var(--theme-switch-color);
   transition: all 0.5s;
   cursor: pointer;
 }

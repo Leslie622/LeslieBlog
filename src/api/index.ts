@@ -1,12 +1,5 @@
 import axios from 'axios'
-import type {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  AxiosError,
-  InternalAxiosRequestConfig
-} from 'axios'
-import router from '@/router/index'
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError, InternalAxiosRequestConfig } from 'axios'
 import NProgress from '@/utils/nprogress'
 
 const env = import.meta.env //环境变量
@@ -27,11 +20,6 @@ export class Request {
     /* 请求拦截 */
     this.instance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
-        //携带token
-        const token = localStorage.getItem('token') as string
-        if (token) {
-          config.headers!.Authorization = 'Bearer ' + token
-        }
         NProgress.start()
         return config
       },
@@ -47,10 +35,6 @@ export class Request {
         if (status === 200) {
           //成功
         } else {
-          if (status === 401) {
-            //token失效跳转到登录页
-            router.push('/welcome')
-          }
           ElMessage.error(message)
           NProgress.done()
           return Promise.reject(response.data)
