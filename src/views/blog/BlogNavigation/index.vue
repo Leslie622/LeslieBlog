@@ -2,8 +2,8 @@
   <div class="navigation">
     <div v-for="(item, index) in navItems" :key="index" :class="{ 'is-active': navigationActive === index }" @click="handleClick(index)">
       <router-link :to="item.path" class="navigation__item">
-        <Icon :icon="item.icon" width="1.2rem" class="icon"></Icon>
-        <Icon icon="system-uicons:check" width="1.5rem" class="active-icon"></Icon>
+        <Icon :icon="item.icon" class="icon"></Icon>
+        <Icon icon="system-uicons:check" class="active-icon" color="#C51E3A"></Icon>
         <span>{{ item.name }}</span>
       </router-link>
     </div>
@@ -39,7 +39,7 @@ function handleClick(index: number) {
   height: 40px;
   padding-left: 0.5rem;
   color: black;
-  font-size: 14px;
+  font-size: 13px;
   text-decoration: none;
   &:hover {
     background-color: #f5f5f5;
@@ -52,8 +52,9 @@ function handleClick(index: number) {
   }
 
   .icon {
-    padding: 0 1rem;
+    padding: 0 0.8rem;
     position: relative;
+    font-size: 1.1rem;
     top: -1px;
   }
 
@@ -61,12 +62,13 @@ function handleClick(index: number) {
     display: none;
     position: absolute;
     right: 12%;
-    animation: scale 0.3s forwards;
+    font-size: 1.5rem;
+    animation: scale 0.4s forwards;
   }
 
   @keyframes scale {
     40% {
-      transform: scale(1.5);
+      transform: scale(1.3);
     }
     100% {
       transform: scale(1);
@@ -77,7 +79,33 @@ function handleClick(index: number) {
 //窗口宽度小于1024px
 @media screen and (max-width: 1024px) {
   .navigation {
-    padding: 0 2rem;
+    padding: 0 1rem;
+    gap: 5px;
+
+    .is-active {
+      transition: border-width 0.2s ease-out;
+      border-right: 6px solid #c51e3a;
+      .navigation__item {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+    }
+
+    .navigation__item {
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+
+      .icon {
+        font-size: 1.5rem;
+      }
+
+      .active-icon {
+        font-size: 2.5rem;
+      }
+      // &.router-link-active {
+      //   border-right: 10px solid #c51e3a;
+      // }
+    }
   }
 }
 </style>

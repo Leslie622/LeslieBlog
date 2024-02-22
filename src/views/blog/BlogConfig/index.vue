@@ -2,7 +2,7 @@
   <div class="config" :class="{ 'config--active': configActive }">
     <div class="config__header" @click="configActive = !configActive">
       <span>选择博客内容</span>
-      <Icon icon="tabler:hand-click" width="15px"></Icon>
+      <Icon icon="mynaui:click" width="18px"></Icon>
     </div>
     <div class="config__content">
       <el-divider content-position="left">标题模糊查询</el-divider>
@@ -117,11 +117,12 @@ function setKeyword() {
     }
 
     .submit {
-      margin: 0.6rem 0;
-      padding: 10px 0;
       display: grid;
       place-items: center;
+      margin: 0.6rem 0;
+      padding: 10px 0;
       color: white;
+      border-radius: 5px;
       background-color: #222222;
       cursor: pointer;
     }
@@ -146,6 +147,11 @@ function setKeyword() {
 //窗口宽度小于1000px时：版心100%
 @media screen and (max-width: 1024px) {
   .config {
+    .config__header{
+      border: none;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    }
+
     .config__content {
       padding: 1rem 2rem 0 2rem;
     }

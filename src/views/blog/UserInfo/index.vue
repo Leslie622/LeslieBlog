@@ -7,22 +7,23 @@
       <span>{{ user.introduce }}</span>
     </div>
     <div class="link">
-      <div v-for="item in linkIcons" :key="item.text" class="link__item">
-        <el-popover placement="top" trigger="click" width="200px" popper-class="link-popover">
+      <div v-for="item in linkIcons" :key="item.text">
+        <el-popover placement="top" trigger="click" width="200px" popper-class="link-popover" :hide-after="0">
           <template #reference>
-            <Icon :icon="item.icon" width="20px"></Icon>
+            <div class="link__item">
+              <Icon :icon="item.icon" width="20px"></Icon>
+            </div>
           </template>
           <div class="hint">
             <div v-if="item.href" class="href">
               <span v-if="item.href">{{ item.text }}</span>
               <el-button type="primary" size="small" @click="linkClickHandler(item)">去看看</el-button>
             </div>
-            <div v-if="item.img">
+            <div v-if="item.img" class="img">
               <img :src="item.img" alt="" />
             </div>
           </div>
         </el-popover>
-        <!-- <Icon :icon="item.icon" width="1.2rem"></Icon> -->
       </div>
     </div>
   </div>
@@ -89,10 +90,9 @@ function linkClickHandler(item: any) {
   .link__item {
     display: grid;
     place-items: center;
-    padding: 0.3rem;
+    padding: 0.4rem;
     border-radius: 5px;
     cursor: pointer;
-
     transition: background-color 0.3s;
 
     &:hover {
@@ -127,6 +127,12 @@ function linkClickHandler(item: any) {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+  }
+  .img {
+    text-align: center;
+    img {
+      width: 90%;
+    }
   }
 }
 

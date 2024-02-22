@@ -39,7 +39,7 @@ const linkList = [
   position: relative;
   display: inline-block;
   font-family: Monoton-Regular;
-  font-size: 7rem;
+  font-size: 8rem;
 
   .logo-light {
     color: #fff;
@@ -68,14 +68,15 @@ const linkList = [
 }
 
 .content__nav {
-  margin: 1.5rem 0rem;
+  margin: 0.5rem 0rem;
   font-family: Arial;
 
   .item {
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #249ffd;
     transition: opacity 0.3s;
+    text-decoration: none;
 
     &:hover {
       opacity: 0.5;
