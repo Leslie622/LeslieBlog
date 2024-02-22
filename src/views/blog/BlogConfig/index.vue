@@ -62,7 +62,7 @@ function changeCategory(categoryId: string) {
 .config {
   height: auto;
   max-height: 40px;
-  margin: 5px 5px 0;
+  margin: 5px;
   box-sizing: border-box;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -79,6 +79,7 @@ function changeCategory(categoryId: string) {
     align-items: center;
     padding: 5px;
     height: 40px;
+    background-color: yellow;
     box-sizing: border-box;
     cursor: pointer;
   }
