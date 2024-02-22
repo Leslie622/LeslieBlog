@@ -23,19 +23,6 @@ import { useBlogStore } from '@/stores/modules/blog'
  * -1：降序
  *  0：默认
  */
-
-const sortIcons: { [key: string]: string } = {
-  '1': 'ph:arrow-up-light',
-  '0': 'ph:arrows-vertical-light',
-  '-1': 'ph:arrow-down-light'
-}
-
-// const hintMap:  = {
-//   '1': '升序',
-//   '-1': '降序',
-//   '0': '默认'
-// }
-
 const orders = [1, -1, 0]
 const blogStore = useBlogStore()
 const props = defineProps<{
@@ -72,7 +59,7 @@ function updateOrderBy() {
   for (const [key, value] of blogStore.sortMap) {
     sortArr.push({ field: key, order: value })
   }
-  blogStore.sortArr = sortArr
+  blogStore.blogQueryConfig.sortArr = sortArr
 }
 </script>
 
@@ -94,7 +81,6 @@ function updateOrderBy() {
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding: 5px;
   }
 
   .text {

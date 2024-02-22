@@ -1,12 +1,16 @@
 export const useBlogStore = defineStore('blog', () => {
   /* state */
 
-  //分类id
-  const categoryId = ref<string>(localStorage.categoryId ?? '')
-  //排序数组
-  const sortArr = ref<Blog.sortData[]>([])
+  // 博客查询参数
+  const blogQueryConfig = reactive<Blog.listReqData>({
+    pageNum: 1,
+    pageSize: 10,
+    category: localStorage.categoryId ?? '',
+    searchKeyword: '',
+    sortArr: []
+  })
   //排序字段存储
   const sortMap = ref<Map<string, any>>(new Map())
 
-  return { categoryId, sortArr, sortMap }
+  return { blogQueryConfig, sortMap }
 })
