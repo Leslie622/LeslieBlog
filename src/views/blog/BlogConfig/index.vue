@@ -127,7 +127,7 @@ function changeCategory(categoryId: string) {
 @media screen and (max-width: 1024px) {
   .config {
     .config__content {
-      padding: 0 2rem;
+      padding: 1rem 2rem 0 2rem;
     }
   }
 }

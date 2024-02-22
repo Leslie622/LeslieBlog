@@ -52,3 +52,14 @@ namespace Blog {
     }[]
   }
 }
+
+namespace User {
+  type userInfoReqData = {
+    userId: string
+  }
+
+  type userInfoResData = {
+    avatar: string
+    introduce: string
+  }
+}

@@ -20,7 +20,7 @@
             <blog-navigation></blog-navigation>
           </div>
           <div class="inner__block">
-
+            <user-info></user-info>
           </div>
         </div>
       </header>
@@ -120,7 +120,7 @@ const headerActive = ref<boolean>(false)
 
 .content__header.header--active {
   // 这里的高度需要大于头部内容总高度，从而通过max-height实现不定高过渡动画
-  max-height: 500px;
+  max-height: 720px;
   /**
    * switch的动画
    * 位移直接过渡，过渡时间为0.2s，旋转等待位移过渡完成，等待时间为0.2s 过渡时间为0.1s
@@ -170,7 +170,7 @@ const headerActive = ref<boolean>(false)
   }
 }
 
-//窗口宽度小于1000px
+//窗口宽度小于1024px
 @media screen and (max-width: 1024px) {
   //版心100%
   .blog__content {

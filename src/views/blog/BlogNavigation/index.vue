@@ -46,7 +46,6 @@ function handleClick(index: number) {
   }
 
   &.router-link-active {
-    // background-color: red;
     .active-icon {
       display: block;
     }
@@ -72,6 +71,13 @@ function handleClick(index: number) {
     100% {
       transform: scale(1);
     }
+  }
+}
+
+//窗口宽度小于1024px
+@media screen and (max-width: 1024px) {
+  .navigation {
+    padding: 0 2rem;
   }
 }
 </style>

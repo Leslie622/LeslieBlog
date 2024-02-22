@@ -12,6 +12,8 @@ import '@/assets/styles/globals.scss'
 import directives from '@/directives/index'
 
 const app = createApp(App)
+//图片前缀
+app.config.globalProperties.$ImgPrefix = 'https://leslie-blog-1314141789.cos.ap-nanjing.myqcloud.com/'
 
 app.use(createPinia())
 app.use(router)
