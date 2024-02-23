@@ -24,7 +24,6 @@
       </div>
       <el-divider content-position="left">排序</el-divider>
       <div class="content__sort">
-        <sort-button field="updatedAt" text="更新时间"></sort-button>
         <sort-button field="views" text="浏览量"></sort-button>
       </div>
       <div class="submit" @click="submitHandler">

@@ -14,6 +14,10 @@ export const useBlogStore = defineStore('blog', () => {
       {
         field: 'isSticky',
         order: -1
+      },
+      {
+        field: 'updatedAt',
+        order: -1
       }
     ]
   })
@@ -22,6 +26,7 @@ export const useBlogStore = defineStore('blog', () => {
   const sortMap = ref<Map<string, any>>(new Map())
   //定义默认排序规则
   sortMap.value.set('isSticky', -1)
+  sortMap.value.set('updatedAt', -1)
 
   return { blogQueryConfig, sortMap }
 })
