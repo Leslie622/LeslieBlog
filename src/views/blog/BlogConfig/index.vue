@@ -17,7 +17,8 @@
       </div>
       <el-divider content-position="left">分类选择</el-divider>
       <div>
-        <el-select v-model="blogStore.blogQueryConfig.category" @change="changeCategory" placeholder="选择博客分类">
+        <el-select v-model="blogStore.blogQueryConfig.category" @change="changeCategory" placeholder="所有" :fit-input-width="true">
+          <el-option label="所有" value=""></el-option>
           <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="item.id" />
         </el-select>
       </div>
@@ -26,7 +27,7 @@
         <sort-button field="updatedAt" text="更新时间"></sort-button>
         <sort-button field="views" text="浏览量"></sort-button>
       </div>
-      <div class="submit" @click="configActive = !configActive">
+      <div class="submit" @click="submitHandler">
         <span>确定</span>
       </div>
     </div>
@@ -37,6 +38,7 @@
 import apiBlog from '@/api/modules/blog'
 import { useBlogStore } from '@/stores/modules/blog'
 import { userInfo } from '@/config/user'
+import emitter from '@/utils/mitt';
 const blogStore = useBlogStore()
 const configActive = ref<boolean>(false)
 const categoryList = ref<BlogCategory.listResData>()
@@ -68,6 +70,16 @@ function changeCategory(categoryId: string) {
  */
 function setKeyword() {
   blogStore.blogQueryConfig.searchKeyword = searchKeyword.value
+}
+
+/**
+ * 博客信息配置后的处理函数
+ */
+function submitHandler(){
+  //关闭配置栏
+  configActive.value = !configActive.value
+  //通知article组件更新数据
+  emitter.emit("blogConfigChanged")
 }
 </script>
 
@@ -147,9 +159,11 @@ function setKeyword() {
 //窗口宽度小于1000px时：版心100%
 @media screen and (max-width: 1024px) {
   .config {
-    .config__header{
+    .config__header {
       border: none;
-      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      box-shadow:
+        rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     }
 
     .config__content {

@@ -19,12 +19,29 @@ namespace BlogCategory {
 }
 
 namespace Blog {
+  type blogInfo = {
+    id: string
+    title: string
+    abstract: string
+    cover: string
+    content: string
+    draft: string
+    category: string
+    author: string
+    views: number
+    isOriginal: boolean
+    isSticky: boolean
+    createdAt: string
+    updatedAt: string
+  }
+
   type sortData = {
     field: string //排序字段
     order: number //排序方式
   }
 
   type listReqData = {
+    userId: string //用户id
     pageNum: number //页码
     pageSize: number //每页个数
     category: string //分类id，默认空为所有
@@ -35,21 +52,7 @@ namespace Blog {
 
   type listResData = {
     total: number
-    blogList: {
-      id: string
-      title: string
-      abstract: string
-      cover: string
-      content: string
-      draft: string
-      category: string
-      author: string
-      views: number
-      isOriginal: boolean
-      isSticky: boolean
-      createTime: string
-      updateTime: string
-    }[]
+    blogList: blogInfo[]
   }
 }
 

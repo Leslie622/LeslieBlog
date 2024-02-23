@@ -25,7 +25,11 @@
         </div>
       </header>
       <div class="router-view">
-        <router-view class="router-view__wrapper" />
+        <router-view v-slot="{ Component }">
+          <keep-alive>
+            <component :is="Component" />
+          </keep-alive>
+        </router-view>
       </div>
     </div>
   </div>
@@ -48,7 +52,7 @@ const headerActive = ref<boolean>(false)
 
 .blog__content {
   margin: 0 auto;
-  width: 1200px; //版心
+  width: 1100px; //版心
 }
 
 .content__header {
@@ -149,21 +153,14 @@ const headerActive = ref<boolean>(false)
 
 .router-view {
   margin-left: 240px;
-
-  .router-view__wrapper {
-    box-sizing: border-box;
-    padding: 0 10px 10px;
-    max-height: 100vh;
-    overflow: auto;
-  }
 }
 
 /**
  * —————————————— 响应式 ——————————————
  */
 
-//窗口宽度小于1200px
-@media screen and (max-width: 1200px) {
+// //窗口宽度小于1100px
+@media screen and (max-width: 1100px) {
   //版心缩小到1024px
   .blog__content {
     width: 1024px;
@@ -209,11 +206,6 @@ const headerActive = ref<boolean>(false)
 
   .router-view {
     margin-left: 0;
-
-    .router-view__wrapper {
-      padding: 0.5rem;
-      max-height: calc(100vh - 80px);
-    }
   }
 }
 </style>

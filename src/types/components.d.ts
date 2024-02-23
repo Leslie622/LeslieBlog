@@ -7,22 +7,30 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Archive: typeof import('./../views/blog/archive/index.vue')['default']
+    Article: typeof import('./../views/blog/article/index.vue')['default']
+    Blog: typeof import('./../views/blog/index.vue')['default']
+    BlogConfig: typeof import('./../views/blog/BlogConfig/index.vue')['default']
+    BlogNavigation: typeof import('./../views/blog/BlogNavigation/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDivider: typeof import('element-plus/es')['ElDivider']
-    ElDropdown: typeof import('element-plus/es')['ElDropdown']
-    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
-    ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPopover: typeof import('element-plus/es')['ElPopover']
     ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    Home: typeof import('./../views/home/index.vue')['default']
     Icon: typeof import('@iconify/vue')['Icon']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SearchInput: typeof import('./../components/SearchInput/index.vue')['default']
     SortButton: typeof import('./../components/SortButton/index.vue')['default']
     ThemeSwitch: typeof import('./../components/ThemeSwitch/index.vue')['default']
+    UserInfo: typeof import('./../views/blog/UserInfo/index.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
   }
 }
