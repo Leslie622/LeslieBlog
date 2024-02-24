@@ -3,10 +3,27 @@
     <div class="article">
       <el-skeleton :loading="loading" animated>
         <template #template>
-          <div class="article__item">
-            <div class="blog-info"></div>
-            <div class="cover">
-              <el-skeleton-item variant="image" style="width: 240px; height: 100%" />
+          <div class="article">
+            <div class="article__item" v-for="i in 5" :key="i">
+              <div class="blog-info">
+                <div class="title" style="width: 100%; box-sizing: border-box">
+                  <el-skeleton-item variant="h1" />
+                </div>
+                <div class="details">
+                  <el-skeleton-item variant="text" style="width: 3rem; border: none" />
+                  <el-skeleton-item variant="text" style="width: 3rem; border: none" />
+                </div>
+                <div class="abs" style="width: 100%; box-sizing: border-box">
+                  <el-skeleton-item variant="text" style="width: 100%" />
+                  <el-skeleton-item variant="text" style="width: 100%" />
+                </div>
+                <div class="action">
+                  <el-skeleton-item variant="button" style="height: 1.5rem" />
+                </div>
+              </div>
+              <div class="cover">
+                <el-skeleton-item variant="image" class="el-image" style="display: flex" />
+              </div>
             </div>
           </div>
         </template>
@@ -83,7 +100,9 @@ async function getBlogList() {
   const res = await apiBlog.getBlogList(blogStore.blogQueryConfig)
   blogList.value = res.data.blogList
   total.value = res.data.total
-  loading.value = false
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
 }
 
 /**
@@ -278,11 +297,6 @@ emitter.on('blogConfigChanged', () => {
   }
 }
 
-.el-skeleton {
-  // --el-skeleton-color: red;
-  // --el-skeleton-to-color: yellow;
-}
-
 //窗口宽度小于1024px
 @media screen and (max-width: 1024px) {
   .wrapper {
@@ -323,6 +337,9 @@ emitter.on('blogConfigChanged', () => {
 //窗口宽度小于500px
 @media screen and (max-width: 500px) {
   .article__item {
+    //调整骨架屏大小参数
+    --el-font-size-extra-large: 1rem;
+    --el-font-size-small: 0.7rem;
     height: 130px;
 
     .blog-info {
@@ -335,6 +352,7 @@ emitter.on('blogConfigChanged', () => {
       }
 
       .abs {
+        padding: 0.6rem 0.9rem;
         span {
           -webkit-line-clamp: 2;
         }
