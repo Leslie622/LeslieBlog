@@ -5,7 +5,6 @@ export enum Theme {
 }
 
 export const useCommonStore = defineStore('common', () => {
-  /* state */
   const theme = ref<Theme>(localStorage.theme ?? Theme.Light)
 
   return { theme }

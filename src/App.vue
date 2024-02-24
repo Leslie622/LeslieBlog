@@ -30,8 +30,6 @@ const theme = computed(() => {
 watch(
   () => route.path,
   (newPath, oldPath) => {
-    console.log('1')
-
     //处理边界情况（因为重定向路由为 "/"）
     if (oldPath === '/') {
       oldPath = '/home'
@@ -40,11 +38,8 @@ watch(
     if (isTransition.value) {
       //如果要进入的页面是上个页面，则应用回退动画
       if (newPath === lastPath.value) {
-        console.log('回退')
-
         transitionName.value = 'slide-left'
       } else {
-        console.log('前进')
         transitionName.value = 'slide-right'
       }
     }
