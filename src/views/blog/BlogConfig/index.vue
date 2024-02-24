@@ -37,7 +37,7 @@
 import apiBlog from '@/api/modules/blog'
 import { useBlogStore } from '@/stores/modules/blog'
 import { userInfo } from '@/config/user'
-import emitter from '@/utils/mitt';
+import emitter from '@/utils/mitt'
 const blogStore = useBlogStore()
 const configActive = ref<boolean>(false)
 const categoryList = ref<BlogCategory.listResData>()
@@ -74,11 +74,11 @@ function setKeyword() {
 /**
  * 博客信息配置后的处理函数
  */
-function submitHandler(){
+function submitHandler() {
   //关闭配置栏
   configActive.value = !configActive.value
   //通知article组件更新数据
-  emitter.emit("blogConfigChanged")
+  emitter.emit('blogConfigChanged')
 }
 </script>
 

@@ -100,9 +100,7 @@ async function getBlogList() {
   const res = await apiBlog.getBlogList(blogStore.blogQueryConfig)
   blogList.value = res.data.blogList
   total.value = res.data.total
-  setTimeout(() => {
-    loading.value = false
-  }, 1000)
+  loading.value = false
 }
 
 /**

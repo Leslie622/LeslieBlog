@@ -41,25 +41,8 @@ function sortHandler() {
   Index = Index % orders.length
   currentOrder.value = orders[Index]
   Index += 1
-  //添加排序对象
-  const hasprop = blogStore.sortMap.has(props.field)
-  if (hasprop == true && currentOrder.value == 0) {
-    blogStore.sortMap.delete(props.field)
-  } else {
-    blogStore.sortMap.set(props.field, currentOrder.value)
-  }
-  updateOrderBy()
-}
-
-/**
- * 更新排序数组
- */
-function updateOrderBy() {
-  let sortArr = []
-  for (const [key, value] of blogStore.sortMap) {
-    sortArr.push({ field: key, order: value })
-  }
-  blogStore.blogQueryConfig.sortArr = sortArr
+  //到bligStore处理后续逻辑
+  blogStore.sortHandler(props.field, currentOrder.value)
 }
 </script>
 
