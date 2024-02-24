@@ -36,10 +36,10 @@ function handleClick(index: number) {
   position: relative;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 2.5rem;
   padding-left: 0.5rem;
   color: black;
-  font-size: 13px;
+  font-size: 0.8rem;
   text-decoration: none;
   &:hover {
     background-color: #f5f5f5;
@@ -76,6 +76,10 @@ function handleClick(index: number) {
   }
 }
 
+/**
+ * ——————————————————响应式——————————————————
+ */
+
 //窗口宽度小于1024px
 @media screen and (max-width: 1024px) {
   .navigation {
@@ -102,9 +106,6 @@ function handleClick(index: number) {
       .active-icon {
         font-size: 2.5rem;
       }
-      // &.router-link-active {
-      //   border-right: 10px solid #c51e3a;
-      // }
     }
   }
 }
