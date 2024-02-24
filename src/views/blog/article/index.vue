@@ -67,10 +67,9 @@
             <div class="cover" v-if="item.cover">
               <el-image :src="$ImgPrefix + item.cover" :lazy="true">
                 <template #placeholder>
-                  <!-- <div class="placeholder">等待图片加载，请稍后</div> -->
+                  <el-skeleton-item variant="image" class="el-image" style="display: flex" />
                 </template>
               </el-image>
-              <!-- <img :src="$ImgPrefix + item.cover" alt="" /> -->
             </div>
           </div>
         </template>
@@ -157,143 +156,148 @@ emitter.on('blogConfigChanged', () => {
   &:nth-child(even) {
     flex-direction: row-reverse;
   }
+}
 
-  .blog-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7rem;
-    gap: 0.7rem;
+.blog-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+  gap: 0.7rem;
 
-    .title {
-      padding: 0 3rem;
-      span {
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        text-overflow: ellipsis;
-        font-weight: bold;
-        font-size: 1.1rem;
-      }
-    }
-
-    .details {
-      display: flex;
-      gap: 1rem;
-      color: #a1a1a1;
-
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.2rem 0 1px;
-        font-size: 0.9rem;
-        border-bottom: 1px dashed #a1a1a1;
-
-        svg {
-          position: relative;
-          top: -1px;
-        }
-      }
-
-      .sticky {
-        color: #c51e3a;
-        border-color: #c51e3a;
-        font-weight: bold;
-      }
-
-      .notOriginal {
-        color: #ed9121;
-        border-color: #ed9121;
-        font-weight: bold;
-      }
-    }
-
-    .abs {
-      align-self: flex-start;
-      background-color: #f9f9f9a9;
-      padding: 0.7rem 1rem;
-      border-left: 3px solid #cecece;
-      span {
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        text-overflow: ellipsis;
-        font-size: 0.9rem;
-        color: #a1a1a1;
-      }
-    }
-
-    .action {
-      text-align: center;
-      a {
-        text-decoration: none;
-        color: #000;
-        margin: auto;
-        width: 6rem;
-        display: inline-block;
-        line-height: 1.5rem;
-        font-size: 0.75rem;
-        background-color: #fff;
-        border: 2px solid #000;
-        box-shadow: 1px 1px 0;
-        position: relative;
-
-        &:after {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          z-index: -1;
-          background-color: #fff;
-          transition: all 0.5s;
-        }
-
-        &:hover {
-          background-color: transparent;
-        }
-        &:hover:after {
-          background-color: #f6d51e;
-        }
-
-        &:active {
-          top: 2px;
-          left: 2px;
-          box-shadow: 0 0 0 0;
-        }
-      }
+  .title {
+    padding: 0 3rem;
+    span {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      text-overflow: ellipsis;
+      font-weight: bold;
+      font-size: 1.1rem;
     }
   }
 
-  .cover {
-    height: 100%;
-    box-sizing: border-box;
-    padding: 10px;
+  .details {
+    display: flex;
+    gap: 1rem;
+    color: #a1a1a1;
 
-    :deep(.el-image) {
-      width: 330px;
-      height: 100%;
-      border-radius: 3px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0 1px;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed #a1a1a1;
 
-      .placeholder {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      svg {
+        position: relative;
+        top: -1px;
+      }
+    }
+
+    .sticky {
+      color: #c51e3a;
+      border-color: #c51e3a;
+      font-weight: bold;
+    }
+
+    .notOriginal {
+      color: #ed9121;
+      border-color: #ed9121;
+      font-weight: bold;
+    }
+  }
+
+  .abs {
+    align-self: flex-start;
+    background-color: #f9f9f9a9;
+    padding: 0.7rem 1rem;
+    border-left: 3px solid #cecece;
+    span {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      text-overflow: ellipsis;
+      font-size: 0.9rem;
+      color: #a1a1a1;
+    }
+  }
+
+  .action {
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: #000;
+      margin: auto;
+      width: 6rem;
+      display: inline-block;
+      line-height: 1.5rem;
+      font-size: 0.75rem;
+      background-color: #fff;
+      border: 2px solid #000;
+      box-shadow: 1px 1px 0;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
         height: 100%;
         width: 100%;
-        font-size: 1rem;
-        color: #cdd0d6;
+        z-index: -1;
+        background-color: #fff;
+        transition: all 0.5s;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+      &:hover:after {
+        background-color: #f6d51e;
+      }
+
+      &:active {
+        top: 2px;
+        left: 2px;
+        box-shadow: 0 0 0 0;
       }
     }
   }
 }
+
+.cover {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+
+  :deep(.el-image) {
+    width: 330px;
+    height: 100%;
+    border-radius: 3px;
+    background-color: #f0f2f5;
+
+    .placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      font-size: 1rem;
+      color: #cdd0d6;
+    }
+  }
+}
+
+/**
+ * ————————————————————响应式——————————————————————
+ */
 
 //窗口宽度小于1024px
 @media screen and (max-width: 1024px) {
@@ -307,27 +311,27 @@ emitter.on('blogConfigChanged', () => {
 @media screen and (max-width: 770px) {
   .article__item {
     height: 180px;
+  }
 
-    .blog-info {
-      gap: 0.4rem;
+  .blog-info {
+    gap: 0.4rem;
 
-      .title {
-        padding: 0 3rem;
-      }
-
-      .action {
-        a {
-          width: 5.5rem;
-          line-height: 1.4rem;
-          font-size: 0.75rem;
-        }
-      }
+    .title {
+      padding: 0 3rem;
     }
 
-    .cover {
-      :deep(.el-image) {
-        width: 266px;
+    .action {
+      a {
+        width: 5.5rem;
+        line-height: 1.4rem;
+        font-size: 0.75rem;
       }
+    }
+  }
+
+  .cover {
+    :deep(.el-image) {
+      width: 266px;
     }
   }
 }
@@ -339,39 +343,39 @@ emitter.on('blogConfigChanged', () => {
     --el-font-size-extra-large: 1rem;
     --el-font-size-small: 0.7rem;
     height: 130px;
+  }
 
-    .blog-info {
-      gap: 0.3rem;
-      .title {
-        padding: 0 2rem;
-        span {
-          font-size: 1rem;
-        }
-      }
-
-      .abs {
-        padding: 0.6rem 0.9rem;
-        span {
-          -webkit-line-clamp: 2;
-        }
-      }
-
-      .action {
-        a {
-          width: 4.5rem;
-          line-height: 1.3rem;
-          font-size: 0.75rem;
-        }
+  .blog-info {
+    gap: 0.3rem;
+    .title {
+      padding: 0 2rem;
+      span {
+        font-size: 1rem;
       }
     }
 
-    .cover {
-      padding: 0.5rem;
-      box-sizing: border-box;
-
-      :deep(.el-image) {
-        width: 176px;
+    .abs {
+      padding: 0.6rem 0.9rem;
+      span {
+        -webkit-line-clamp: 2;
       }
+    }
+
+    .action {
+      a {
+        width: 4.5rem;
+        line-height: 1.3rem;
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .cover {
+    padding: 0.5rem;
+    box-sizing: border-box;
+
+    :deep(.el-image) {
+      width: 176px;
     }
   }
 }
@@ -380,37 +384,37 @@ emitter.on('blogConfigChanged', () => {
 @media screen and (max-width: 400px) {
   .article__item {
     height: 100px;
+  }
 
-    .blog-info {
-      gap: 0.2rem;
+  .blog-info {
+    gap: 0.2rem;
 
-      .title {
-        padding: 0 2rem;
-        span {
-          font-size: 0.9rem;
-        }
-      }
-
-      .abs {
-        span {
-          -webkit-line-clamp: 1;
-        }
-      }
-
-      .action {
-        a {
-          width: 4rem;
-          line-height: 1.2rem;
-          font-size: 0.9rem;
-          border-width: 1px;
-        }
+    .title {
+      padding: 0 2rem;
+      span {
+        font-size: 0.9rem;
       }
     }
 
-    .cover {
-      :deep(.el-image) {
-        width: 133px;
+    .abs {
+      span {
+        -webkit-line-clamp: 1;
       }
+    }
+
+    .action {
+      a {
+        width: 4rem;
+        line-height: 1.2rem;
+        font-size: 0.9rem;
+        border-width: 1px;
+      }
+    }
+  }
+
+  .cover {
+    :deep(.el-image) {
+      width: 133px;
     }
   }
 }
