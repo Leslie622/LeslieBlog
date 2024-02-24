@@ -56,24 +56,24 @@ function sortHandler() {
 }
 
 .content {
-  height: 1.9rem;
+  height: 30px;
   display: flex;
+  // gap: 3px;
 }
 
 .text,
 .icon {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .text {
-  font-size: 0.75rem;
-  padding: 0.5rem;
+  font-size: 12px;
+  padding: 0.6rem 0.2rem 0.6rem 0.6rem;
 }
 
 .icon {
-  padding-right: 0.5rem;
+  padding: 0.3rem 0.3rem 0.3rem 0;
   .icon__content {
     display: inline-flex;
     flex-direction: column;
@@ -110,24 +110,10 @@ function sortHandler() {
  * ——————————————————响应式——————————————————
  */
 
-//窗口宽度小于770px
-@media screen and (max-width: 770px) {
-  .icon {
-    transform: scale(0.9);
-  }
-}
-
-//窗口宽度小于500px
-@media screen and (max-width: 500px) {
-  .icon {
-    transform: scale(0.7);
-  }
-}
-
 //窗口宽度小于400px
 @media screen and (max-width: 400px) {
   .icon {
-    transform: scale(0.65);
+    transform: scale(0.8);
   }
 }
 </style>
