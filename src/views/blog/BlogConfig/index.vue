@@ -1,12 +1,12 @@
 <template>
   <div class="config" :class="{ 'config--active': configActive }">
-    <div class="config__header" @click="configActive = !configActive">
+    <div class="header" @click="configActive = !configActive">
       <span>选择博客内容</span>
-      <Icon icon="mynaui:click" width="18px"></Icon>
+      <Icon icon="mynaui:click" width="1rem"></Icon>
     </div>
-    <div class="config__content">
+    <div class="content">
       <el-divider content-position="left">标题模糊查询</el-divider>
-      <div class="search-input">
+      <div>
         <el-input v-model="searchKeyword" @change="setKeyword">
           <template v-slot:suffix>
             <div class="search-input__suffix">
@@ -84,68 +84,60 @@ function submitHandler() {
 
 <style lang="scss" scoped>
 .config {
+  margin: 0.3rem;
+  max-height: 2.8rem;
   height: auto;
-  max-height: 45px;
-  margin: 5px;
-  box-sizing: border-box;
   overflow: hidden;
+  box-sizing: border-box;
   transition: max-height 0.5s;
   user-select: none;
 
   &.config--active {
     //必须保证该max-height比总高度大
-    max-height: 400px;
-  }
-
-  .config__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    height: 35px;
-    gap: 0.5rem;
-    font-size: 13px;
-    color: #a8a8a8;
-    border-radius: 5px;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow:
-      rgba(0, 0, 0, 0.12) 0px 1px 3px,
-      rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-
-  .config__content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem;
-
-    .content__sort {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .submit {
-      display: grid;
-      place-items: center;
-      margin: 0.6rem 0;
-      padding: 10px 0;
-      color: white;
-      border-radius: 5px;
-      background-color: #222222;
-      cursor: pointer;
-    }
+    max-height: 350px;
   }
 }
 
-.el-divider--horizontal {
-  margin: 12px 0;
-  :deep(.el-divider__text) {
-    font-size: 13px;
-    padding: 0 0.8rem;
-    color: #a8a8a8;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.3rem;
+  height: 2.2rem;
+  font-size: 0.8rem;
+  color: #a8a8a8;
+  border-radius: 5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow:
+    rgba(0, 0, 0, 0.12) 0px 1px 3px,
+    rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  .content__sort {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .submit {
+    display: grid;
+    place-items: center;
+    margin: 0.6rem 0;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    color: white;
+    border-radius: 5px;
+    background-color: #222222;
+    cursor: pointer;
   }
 }
 
@@ -155,19 +147,44 @@ function submitHandler() {
   align-items: center;
 }
 
+/**
+ * —————————————— element样式覆盖 ——————————————
+ */
+
+.el-divider--horizontal {
+  margin: 0.75rem 0;
+  :deep(.el-divider__text) {
+    font-size: 0.8rem;
+    padding: 0 0.8rem;
+    color: #a8a8a8;
+  }
+}
+
+.el-input {
+  --el-component-size: 2rem;
+}
+
+.el-select {
+  :deep(.el-select__wrapper) {
+    font-size: 0.8rem;
+    min-height: 2rem;
+  }
+}
+
+.el-select-dropdown__item {
+  height: 2rem;
+  line-height: 2rem;
+  --el-font-size-base: 0.8rem;
+}
+
+/**
+ * —————————————— 响应式 ——————————————
+ */
+
 //窗口宽度小于1000px时：版心100%
 @media screen and (max-width: 1024px) {
-  .config {
-    .config__header {
-      border: none;
-      box-shadow:
-        rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    }
-
-    .config__content {
-      padding: 1rem 2rem 0 2rem;
-    }
+  .content {
+    padding: 1rem 2rem;
   }
 }
 </style>
