@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import emitter from '@/utils/mitt';
+import emitter from '@/utils/mitt'
 
 const navigationActive = ref()
 const navItems = [
@@ -25,7 +25,7 @@ const navItems = [
  */
 function handleClick(index: number) {
   navigationActive.value = index
-  emitter.emit("navigationChanged")
+  emitter.emit('navigationChanged')
 }
 </script>
 
@@ -39,10 +39,10 @@ function handleClick(index: number) {
   position: relative;
   display: flex;
   align-items: center;
-  height: 2.5rem;
+  height: 40px;
   padding-left: 0.5rem;
   color: black;
-  font-size: 0.8rem;
+  font-size: 13px;
   text-decoration: none;
   &:hover {
     background-color: #f5f5f5;
@@ -55,10 +55,10 @@ function handleClick(index: number) {
   }
 
   .icon {
-    padding: 0 0.8rem;
     position: relative;
-    font-size: 1.1rem;
     top: -1px;
+    padding: 0 0.8rem;
+    font-size: 1.1rem;
   }
 
   .active-icon {
