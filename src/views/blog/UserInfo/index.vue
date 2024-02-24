@@ -8,10 +8,10 @@
     </div>
     <div class="link">
       <div v-for="item in linkIcons" :key="item.text">
-        <el-popover placement="top" trigger="click" width="200px" popper-class="link-popover" :hide-after="0">
+        <el-popover placement="top" trigger="click" width="12.5rem" popper-class="link-popover" :hide-after="0">
           <template #reference>
             <div class="link__item">
-              <Icon :icon="item.icon" width="20px"></Icon>
+              <Icon :icon="item.icon" width="1.25rem"></Icon>
             </div>
           </template>
           <div class="hint">
@@ -66,56 +66,62 @@ function linkClickHandler(item: any) {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  gap: 1.2rem;
+  gap: 0.7rem;
+}
 
-  .avatar {
-    img {
-      border-radius: 50%;
-      width: 100px;
-    }
-  }
-
-  .introduce {
-    padding: 0 1.5rem;
-    color: gray;
-  }
-
-  .link {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    color: gray;
-  }
-
-  .link__item {
-    display: grid;
-    place-items: center;
-    padding: 0.4rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #eee;
-    }
-
-    svg {
-      outline: none !important;
-    }
+.avatar {
+  img {
+    border-radius: 50%;
+    width: 6rem;
   }
 }
 
+.introduce {
+  font-size: 0.85rem;
+  padding: 0 1.5rem;
+  color: gray;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  color: gray;
+}
+
+.link__item {
+  display: grid;
+  place-items: center;
+  padding: 0.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  svg {
+    outline: none !important;
+  }
+}
+
+/**
+ * ——————————————————响应式——————————————————
+ */
+
 //窗口宽度小于1024px
 @media screen and (max-width: 1024px) {
-  .user-info {
-    .avatar,
-    .introduce {
-      display: none;
-    }
+  .avatar,
+  .introduce {
+    display: none;
   }
 }
 </style>
 <style lang="scss">
+/**
+ * ——————————————————element样式覆盖——————————————————
+ */
 .link-popover {
   .hint {
     display: flex;
@@ -127,6 +133,12 @@ function linkClickHandler(item: any) {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.8rem;
+    .el-button--small {
+      --el-button-size: 1.7rem;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+    }
   }
   .img {
     text-align: center;
