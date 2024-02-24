@@ -85,7 +85,7 @@ function submitHandler() {
 <style lang="scss" scoped>
 .config {
   margin: 0.3rem;
-  max-height: 2.8rem;
+  max-height: 45px;
   height: auto;
   overflow: hidden;
   box-sizing: border-box;
@@ -104,8 +104,8 @@ function submitHandler() {
   align-items: center;
   gap: 0.5rem;
   margin: 0.3rem;
-  height: 2.2rem;
-  font-size: 0.8rem;
+  height: 35px;
+  font-size: 13px;
   color: #a8a8a8;
   border-radius: 5px;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -132,8 +132,8 @@ function submitHandler() {
     display: grid;
     place-items: center;
     margin: 0.6rem 0;
-    padding: 0.6rem;
-    font-size: 0.8rem;
+    padding: 10px;
+    font-size: 13px;
     color: white;
     border-radius: 5px;
     background-color: #222222;
@@ -152,29 +152,12 @@ function submitHandler() {
  */
 
 .el-divider--horizontal {
-  margin: 0.75rem 0;
+  margin: 13px 0;
   :deep(.el-divider__text) {
-    font-size: 0.8rem;
+    font-size: 12px;
     padding: 0 0.8rem;
     color: #a8a8a8;
   }
-}
-
-.el-input {
-  --el-component-size: 2rem;
-}
-
-.el-select {
-  :deep(.el-select__wrapper) {
-    font-size: 0.8rem;
-    min-height: 2rem;
-  }
-}
-
-.el-select-dropdown__item {
-  height: 2rem;
-  line-height: 2rem;
-  --el-font-size-base: 0.8rem;
 }
 
 /**
