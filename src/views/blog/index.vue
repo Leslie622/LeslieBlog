@@ -40,7 +40,17 @@ import BlogConfig from './BlogConfig/index.vue'
 import BlogNavigation from './BlogNavigation/index.vue'
 import UserInfo from './UserInfo/index.vue'
 
+import emitter from '@/utils/mitt'
+
 const headerActive = ref<boolean>(false)
+
+emitter.on('blogConfigChanged', () => {
+  headerActive.value = false
+})
+
+emitter.on("navigationChanged", () => {
+  headerActive.value = false
+})
 </script>
 
 <style lang="scss" scoped>

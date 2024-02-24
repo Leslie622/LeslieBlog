@@ -11,6 +11,8 @@
 </template>
 
 <script setup lang="ts">
+import emitter from '@/utils/mitt';
+
 const navigationActive = ref()
 const navItems = [
   { name: '主页', path: '/home', icon: 'system-uicons:home-alt' },
@@ -23,6 +25,7 @@ const navItems = [
  */
 function handleClick(index: number) {
   navigationActive.value = index
+  emitter.emit("navigationChanged")
 }
 </script>
 

@@ -28,6 +28,8 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
+      host: '192.168.0.106',
+      port: 3344,
       proxy: {
         '/proxy': {
           target: env.VITE_APP_API_BASEURL,
