@@ -8,10 +8,10 @@
     </div>
     <div class="link">
       <div v-for="item in linkIcons" :key="item.text">
-        <el-popover placement="top" trigger="click" width="12.5rem" popper-class="link-popover" :hide-after="0">
+        <el-popover placement="top" trigger="click" width="200px" popper-class="link-popover" :hide-after="0">
           <template #reference>
             <div class="link__item">
-              <Icon :icon="item.icon" width="1.25rem"></Icon>
+              <Icon :icon="item.icon" width="20px"></Icon>
             </div>
           </template>
           <div class="hint">
@@ -77,22 +77,22 @@ function linkClickHandler(item: any) {
 }
 
 .introduce {
-  font-size: 0.85rem;
-  padding: 0 1.5rem;
+  font-size: 13px;
+  padding: 0 12px;
   color: gray;
 }
 
 .link {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 12px;
   color: gray;
 }
 
 .link__item {
   display: grid;
   place-items: center;
-  padding: 0.4rem;
+  padding: 4px 6px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -133,12 +133,7 @@ function linkClickHandler(item: any) {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8rem;
-    .el-button--small {
-      --el-button-size: 1.7rem;
-      padding: 0.3rem 0.6rem;
-      font-size: 0.8rem;
-    }
+    font-size: 14px;
   }
   .img {
     text-align: center;
