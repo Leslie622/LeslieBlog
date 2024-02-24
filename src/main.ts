@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { txCos } from './config/common'
 
 import App from './App.vue'
 import router from './router'
@@ -13,7 +14,7 @@ import directives from '@/directives/index'
 
 const app = createApp(App)
 //图片前缀
-app.config.globalProperties.$ImgPrefix = 'https://leslie-blog-1314141789.cos.ap-nanjing.myqcloud.com/'
+app.config.globalProperties.$ImgPrefix = txCos.imgPrefix
 
 app.use(createPinia())
 app.use(router)
