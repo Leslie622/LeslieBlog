@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const home = () => import('@/views/home/index.vue')
 const blog = () => import('@/views/blog/index.vue')
+const detail = () => import('@/views/detail/index.vue')
+
 const article = () => import('@/views/blog/article/index.vue')
 const archive = () => import('@/views/blog/archive/index.vue')
 
@@ -40,6 +42,14 @@ const router = createRouter({
           component: archive
         }
       ]
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      meta: {
+        title: '详情页'
+      },
+      component: detail
     }
   ]
 })

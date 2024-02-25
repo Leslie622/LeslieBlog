@@ -31,7 +31,7 @@
           </div>
         </template>
         <template #default>
-          <div class="article__item" v-for="item in blogList" :key="item.id">
+          <div class="article__item" v-for="item in blogList" :key="item.id" @click="viewDetailHandler(item.id)">
             <div class="title">
               <el-tooltip effect="light" :content="item.title" placement="top-start">
                 <span>
@@ -88,6 +88,7 @@ import { useBlogStore } from '@/stores/modules/blog'
 import emitter from '@/utils/mitt'
 import { throttle } from '@/utils/common'
 
+const router = useRouter()
 const loading = ref<boolean>(true)
 const blogList = ref<Blog.blogInfo[]>([])
 const total = ref<number>(0)
@@ -142,6 +143,13 @@ emitter.on('blogConfigChanged', () => {
   //获取新数据
   getBlogList()
 })
+
+/**
+ * 查看详情处理函数
+ */
+function viewDetailHandler(articleId: string) {
+  router.push({ path: '/detail', query: { articleId } })
+}
 </script>
 
 <style lang="scss" scoped>
