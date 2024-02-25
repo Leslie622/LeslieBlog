@@ -170,4 +170,14 @@ function submitHandler() {
     padding: 1rem 2rem;
   }
 }
+
+//窗口宽度小于770px
+@media screen and (max-width: 770px) {
+  .header {
+    box-shadow: none;
+    background-color: #222222;
+    color: white;
+    border: none;
+  }
+}
 </style>
