@@ -1,6 +1,8 @@
 <template>
   <div class="switch-btn" @click="switchTheme">
-    <Icon width="1.6rem" :icon="themeIcons[commonStore.theme]" />
+    <!-- <Icon width="1.6rem" :icon="themeIcons[commonStore.theme]" /> -->
+    <Icon icon="line-md:lightbulb" v-if="commonStore.theme == Theme.Light" width="1.6rem"></Icon>
+    <Icon icon="line-md:lightbulb-off" v-if="commonStore.theme == Theme.Dark" width="1.6rem"></Icon>
   </div>
 </template>
 
@@ -10,10 +12,10 @@ import { Theme } from '@/stores/modules/common'
 const commonStore = useCommonStore()
 
 // 主题与图标的映射表
-const themeIcons = {
-  [Theme.Light]: 'material-symbols-light:lightbulb-outline-rounded',
-  [Theme.Dark]: 'material-symbols-light:light-off-outline-rounded'
-}
+// const themeIcons = {
+//   [Theme.Light]: 'material-symbols-light:lightbulb-outline-rounded',
+//   [Theme.Dark]: 'line-md:lightbulb-off'
+// }
 
 /**
  * 切换主题
