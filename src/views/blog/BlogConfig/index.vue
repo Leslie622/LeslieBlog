@@ -48,6 +48,13 @@ onMounted(() => {
 })
 
 /**
+ * 监听：关闭config
+ */
+emitter.on('pullupBlogConfig', () => {
+  configActive.value = false
+})
+
+/**
  * 获取博客分类列表
  */
 async function getBlogCategory() {
@@ -77,7 +84,7 @@ function setKeyword() {
 function submitHandler() {
   //关闭配置栏
   configActive.value = !configActive.value
-  //通知article组件更新数据
+  //触发：博客配置参数变化
   emitter.emit('blogConfigChanged')
 }
 </script>

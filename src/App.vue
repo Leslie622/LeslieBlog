@@ -13,9 +13,10 @@
 
 <script setup lang="ts">
 import { useCommonStore } from '@/stores/modules/common'
+import emitter from '@/utils/mitt'
+
 const commonStore = useCommonStore()
 const route = useRoute()
-
 const isTransition = ref<boolean>(false) //初始不开启动画
 const transitionName = ref<string>() //过渡动画名
 const lastPath = ref<string>()
@@ -30,6 +31,7 @@ const theme = computed(() => {
 watch(
   () => route.path,
   (newPath, oldPath) => {
+    pullupHeader()
     //处理边界情况（因为重定向路由为 "/"）
     if (oldPath === '/') {
       oldPath = '/home'
@@ -49,6 +51,14 @@ watch(
     isTransition.value = true
   }
 )
+
+/**
+ * 页面跳转强制关闭header和blogConfig
+ */
+function pullupHeader() {
+  emitter.emit('pullupBlogConfig')
+  emitter.emit('pullupHeader')
+}
 </script>
 
 <style>

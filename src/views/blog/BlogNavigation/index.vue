@@ -25,7 +25,8 @@ const navItems = [
  */
 function handleClick(index: number) {
   navigationActive.value = index
-  emitter.emit('navigationChanged')
+  //触发：关闭header
+  emitter.emit('pullupHeader')
 }
 </script>
 
