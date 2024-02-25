@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="200" :infinite-scroll-disabled="blogList.length >= total">
+  <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="200" :infinite-scroll-disabled="blogList.length >= total" @scroll="scrollHandler">
     <div class="article">
       <el-skeleton :loading="loading" animated>
         <template #template>
@@ -86,6 +86,7 @@
 import apiBlog from '@/api/modules/blog'
 import { useBlogStore } from '@/stores/modules/blog'
 import emitter from '@/utils/mitt'
+import { throttle } from '@/utils/common'
 
 const loading = ref<boolean>(true)
 const blogList = ref<Blog.blogInfo[]>([])
@@ -95,6 +96,14 @@ const blogStore = useBlogStore()
 onMounted(() => {
   getBlogList()
 })
+
+/**
+ * 监听滚动：关闭header和config
+ */
+const scrollHandler = throttle(function () {
+  emitter.emit('pullupBlogConfig')
+  emitter.emit('pullupHeader')
+}, 3000)
 
 /**
  * 初始化博客列表
