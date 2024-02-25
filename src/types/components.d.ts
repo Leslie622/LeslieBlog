@@ -9,9 +9,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     Archive: typeof import('./../views/blog/archive/index.vue')['default']
     Article: typeof import('./../views/blog/article/index.vue')['default']
+    BackTop: typeof import('./../components/BackTop/index.vue')['default']
     Blog: typeof import('./../views/blog/index.vue')['default']
     BlogConfig: typeof import('./../views/blog/BlogConfig/index.vue')['default']
     BlogNavigation: typeof import('./../views/blog/BlogNavigation/index.vue')['default']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElImage: typeof import('element-plus/es')['ElImage']

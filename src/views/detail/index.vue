@@ -15,6 +15,8 @@
       </div>
       <v-md-preview :text="blogInfo.content"></v-md-preview>
     </div>
+    <back-top :bottom="100" target=".detail">
+    </back-top>
   </div>
 </template>
 
