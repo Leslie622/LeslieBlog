@@ -147,8 +147,8 @@ emitter.on('blogConfigChanged', () => {
 /**
  * 查看详情处理函数
  */
-function viewDetailHandler(articleId: string) {
-  router.push({ path: '/detail', query: { articleId } })
+function viewDetailHandler(blogId: string) {
+  router.push({ path: '/detail', query: { blogId } })
 }
 </script>
 

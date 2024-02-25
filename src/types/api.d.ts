@@ -54,6 +54,12 @@ namespace Blog {
     total: number
     blogList: blogInfo[]
   }
+
+  type singleInfoReqData = {
+    blogId: string
+  }
+
+  type singleInfoResData = blogInfo
 }
 
 namespace User {
