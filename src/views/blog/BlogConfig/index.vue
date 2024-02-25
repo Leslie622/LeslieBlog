@@ -86,6 +86,8 @@ function submitHandler() {
   configActive.value = !configActive.value
   //触发：博客配置参数变化
   emitter.emit('blogConfigChanged')
+  //触发：关闭header
+  emitter.emit('pullupHeader')
 }
 </script>
 
