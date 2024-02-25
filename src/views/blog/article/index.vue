@@ -240,6 +240,7 @@ emitter.on('blogConfigChanged', () => {
       justify-content: center;
       padding: 0 1rem;
       height: 50%;
+      width: 100%;
       box-sizing: border-box;
       background-color: #f9f9f9a9;
       span {
@@ -327,6 +328,7 @@ emitter.on('blogConfigChanged', () => {
         }
       }
       .abs {
+        padding: 0 0.8rem;
         span {
           -webkit-line-clamp: 4;
           font-size: 14px;
@@ -377,6 +379,7 @@ emitter.on('blogConfigChanged', () => {
         }
       }
       .abs {
+        padding: 0 0.6rem;
         span {
           -webkit-line-clamp: 4;
           font-size: 14px;
@@ -428,6 +431,7 @@ emitter.on('blogConfigChanged', () => {
         }
       }
       .abs {
+        padding: 0 0.5rem;
         span {
           -webkit-line-clamp: 3;
           font-size: 13px;
