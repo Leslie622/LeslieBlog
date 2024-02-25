@@ -5,71 +5,75 @@
         <template #template>
           <div class="article">
             <div class="article__item" v-for="i in 5" :key="i">
-              <div class="blog-info">
-                <div class="title" style="width: 100%; box-sizing: border-box">
-                  <el-skeleton-item variant="h1" />
-                </div>
-                <div class="details">
-                  <el-skeleton-item variant="text" style="width: 3rem; border: none" />
-                  <el-skeleton-item variant="text" style="width: 3rem; border: none" />
-                </div>
-                <div class="abs" style="width: 100%; box-sizing: border-box">
-                  <el-skeleton-item variant="text" style="width: 100%" />
-                  <el-skeleton-item variant="text" style="width: 100%" />
-                </div>
-                <div class="action">
-                  <el-skeleton-item variant="button" style="height: 1.5rem" />
-                </div>
+              <div class="title">
+                <el-skeleton-item variant="h1" />
               </div>
-              <div class="cover">
-                <el-skeleton-item variant="image" class="el-image" style="display: flex" />
+              <div class="content">
+                <div class="info">
+                  <div class="details">
+                    <el-skeleton-item variant="text" style="width: 3rem; border: none" />
+                    <el-skeleton-item variant="text" style="width: 3rem; border: none" />
+                  </div>
+                  <div class="abs" style="flex-wrap: wrap">
+                    <el-skeleton-item variant="text" />
+                    <el-skeleton-item variant="text" />
+                    <el-skeleton-item variant="text" />
+                  </div>
+                  <div class="data">
+                    <el-skeleton-item variant="text" style="width: 3rem" />
+                  </div>
+                </div>
+                <div class="cover">
+                  <el-skeleton-item variant="image" class="el-image" style="height: 100%; display: flex" />
+                </div>
               </div>
             </div>
           </div>
         </template>
         <template #default>
           <div class="article__item" v-for="item in blogList" :key="item.id">
-            <div class="blog-info">
-              <div class="title">
-                <el-tooltip effect="light" :content="item.title" placement="top-start">
-                  <span>
-                    {{ item.title }}
-                  </span>
-                </el-tooltip>
-              </div>
-              <div class="details">
-                <div class="time">
-                  <Icon icon="material-symbols-light:date-range-outline-rounded" width="1rem"></Icon>
-                  <span>{{ item.updatedAt.slice(0, 10) }}</span>
-                </div>
-                <div class="views">
-                  <Icon icon="lets-icons:view-light" width="1rem"></Icon>
-                  {{ item.views }}
-                </div>
-                <div class="sticky" v-if="item.isSticky">
-                  <Icon icon="material-symbols-light:vertical-align-top" width="1rem"></Icon>
-                  置顶
-                </div>
-                <div class="notOriginal" v-if="!item.isOriginal">
-                  <!-- <Icon icon="material-symbols-light:vertical-align-top" width="1rem"></Icon> -->
-                  非原创
-                </div>
-              </div>
-              <div class="abs">
+            <div class="title">
+              <el-tooltip effect="light" :content="item.title" placement="top-start">
                 <span>
-                  {{ item.abstract }}
+                  {{ item.title }}
                 </span>
-              </div>
-              <div class="action">
-                <a href="#"> 去看看 </a>
-              </div>
+              </el-tooltip>
             </div>
-            <div class="cover" v-if="item.cover">
-              <el-image :src="$ImgPrefix + item.cover" :lazy="true">
-                <template #placeholder>
-                  <el-skeleton-item variant="image" class="el-image" style="display: flex" />
-                </template>
-              </el-image>
+            <div class="content">
+              <div class="info">
+                <div class="details">
+                  <div class="time">
+                    <Icon icon="material-symbols-light:date-range-outline-rounded" width="1rem"></Icon>
+                    <span>{{ item.updatedAt.slice(0, 10) }}</span>
+                  </div>
+                  <div class="sticky" v-if="item.isSticky">
+                    <Icon icon="material-symbols-light:vertical-align-top" width="1rem"></Icon>
+                    置顶
+                  </div>
+                  <div class="notOriginal" v-if="!item.isOriginal">
+                    <!-- <Icon icon="material-symbols-light:vertical-align-top" width="1rem"></Icon> -->
+                    非原创
+                  </div>
+                </div>
+                <div class="abs">
+                  <span>
+                    {{ item.abstract }}
+                  </span>
+                </div>
+                <div class="data">
+                  <div>
+                    <Icon icon="lets-icons:view-light" width="1.25rem"></Icon>
+                    {{ item.views }}
+                  </div>
+                </div>
+              </div>
+              <div class="cover" v-if="item.cover">
+                <el-image :src="$ImgPrefix + item.cover" :lazy="true">
+                  <template #placeholder>
+                    <el-skeleton-item variant="image" class="el-image" style="display: flex" />
+                  </template>
+                </el-image>
+              </div>
             </div>
           </div>
         </template>
@@ -99,7 +103,9 @@ async function getBlogList() {
   const res = await apiBlog.getBlogList(blogStore.blogQueryConfig)
   blogList.value = res.data.blogList
   total.value = res.data.total
-  loading.value = false
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
 }
 
 /**
@@ -132,7 +138,7 @@ emitter.on('blogConfigChanged', () => {
 <style lang="scss" scoped>
 .wrapper {
   box-sizing: border-box;
-  margin: 0 10px 10px;
+  margin: 0 0.625rem 0.625rem;
   max-height: 100vh;
   overflow: auto;
 
@@ -144,153 +150,131 @@ emitter.on('blogConfigChanged', () => {
 .article {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
+  padding-bottom: 0.8rem;
 }
 
 .article__item {
   display: flex;
-  height: 240px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  height: 250px;
+  box-sizing: border-box;
   background-color: white;
   box-shadow: var(--boxShadow);
 
   &:nth-child(even) {
-    flex-direction: row-reverse;
+    .content {
+      flex-direction: row-reverse;
+    }
   }
 }
 
-.blog-info {
-  flex: 1;
+.title {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem;
-  gap: 0.7rem;
+  padding: 0 4rem;
+  height: 20%;
 
-  .title {
-    padding: 0 3rem;
-    span {
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      text-overflow: ellipsis;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-  }
-
-  .details {
-    display: flex;
-    gap: 1rem;
-    color: #a1a1a1;
-
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.2rem 0 1px;
-      font-size: 0.9rem;
-      border-bottom: 1px dashed #a1a1a1;
-
-      svg {
-        position: relative;
-        top: -1px;
-      }
-    }
-
-    .sticky {
-      color: #c51e3a;
-      border-color: #c51e3a;
-      font-weight: bold;
-    }
-
-    .notOriginal {
-      color: #ed9121;
-      border-color: #ed9121;
-      font-weight: bold;
-    }
-  }
-
-  .abs {
-    align-self: flex-start;
-    background-color: #f9f9f9a9;
-    padding: 0.7rem 1rem;
-    border-left: 3px solid #cecece;
-    span {
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      text-overflow: ellipsis;
-      font-size: 0.9rem;
-      color: #a1a1a1;
-    }
-  }
-
-  .action {
-    text-align: center;
-    a {
-      text-decoration: none;
-      color: #000;
-      margin: auto;
-      width: 6rem;
-      display: inline-block;
-      line-height: 1.5rem;
-      font-size: 0.75rem;
-      background-color: #fff;
-      border: 2px solid #000;
-      box-shadow: 1px 1px 0;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        background-color: #fff;
-        transition: all 0.5s;
-      }
-
-      &:hover {
-        background-color: transparent;
-      }
-      &:hover:after {
-        background-color: #f6d51e;
-      }
-
-      &:active {
-        top: 2px;
-        left: 2px;
-        box-shadow: 0 0 0 0;
-      }
-    }
+  span {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    font-weight: bold;
   }
 }
 
-.cover {
-  height: 100%;
-  box-sizing: border-box;
-  padding: 10px;
+.content {
+  display: flex;
+  height: 80%;
 
-  :deep(.el-image) {
-    width: 330px;
-    height: 100%;
-    border-radius: 3px;
-    background-color: #f0f2f5;
+  .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
 
-    .placeholder {
+    .details {
+      height: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      color: #a1a1a1;
+
+      div {
+        display: flex;
+        gap: 0.3rem;
+        padding: 2px 0 1px;
+        font-size: 14px;
+        border-bottom: 1px dashed #a1a1a1;
+        font-weight: bold;
+      }
+
+      .sticky {
+        color: #c51e3a;
+        border-color: #c51e3a;
+      }
+
+      .notOriginal {
+        color: #ed9121;
+        border-color: #ed9121;
+      }
+    }
+
+    .abs {
+      align-self: flex-start;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      padding: 0rem 1rem;
+      height: 50%;
       width: 100%;
-      font-size: 1rem;
-      color: #cdd0d6;
+      box-sizing: border-box;
+      border-left: 3px solid #cecece;
+      background-color: #f9f9f9a9;
+      span {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        color: #a1a1a1;
+      }
+    }
+
+    .data {
+      align-self: flex-end;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-right: 15px;
+      height: 25%;
+      color: #a1a1a1;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .cover {
+    box-sizing: border-box;
+
+    :deep(.el-image) {
+      width: 264px;
+      border-radius: 5px;
     }
   }
 }
@@ -310,111 +294,177 @@ emitter.on('blogConfigChanged', () => {
 //窗口宽度小于770px
 @media screen and (max-width: 770px) {
   .article__item {
-    height: 180px;
+    height: 230px;
+    padding: 15px;
+    box-shadow: none;
   }
 
-  .blog-info {
-    gap: 0.4rem;
+  .article {
+    gap: 0.625rem;
+    padding-bottom: 1rem;
+  }
 
-    .title {
-      padding: 0 3rem;
-    }
+  .title {
+    padding: 0 4rem;
+  }
 
-    .action {
-      a {
-        width: 5.5rem;
-        line-height: 1.4rem;
-        font-size: 0.75rem;
+  .content {
+    .info {
+      padding: 0 10px;
+      .details {
+        div {
+          font-size: 14px;
+        }
+      }
+      .abs {
+        span {
+          -webkit-line-clamp: 4;
+          font-size: 14px;
+        }
+      }
+      .data {
+        padding-right: 15px;
+        div {
+          font-size: 14px;
+        }
       }
     }
-  }
-
-  .cover {
-    :deep(.el-image) {
-      width: 266px;
+    .cover {
+      :deep(.el-image) {
+        width: 240px;
+      }
     }
   }
 }
 
-//窗口宽度小于500px
-@media screen and (max-width: 500px) {
+//窗口宽度小于650px
+@media screen and (max-width: 650px) {
   .article__item {
-    //调整骨架屏大小参数
-    --el-font-size-extra-large: 1rem;
-    --el-font-size-small: 0.7rem;
-    height: 130px;
+    height: 210px;
+    padding: 10px;
   }
 
-  .blog-info {
-    gap: 0.3rem;
-    .title {
-      padding: 0 2rem;
-      span {
-        font-size: 1rem;
-      }
-    }
-
-    .abs {
-      padding: 0.6rem 0.9rem;
-      span {
-        -webkit-line-clamp: 2;
-      }
-    }
-
-    .action {
-      a {
-        width: 4.5rem;
-        line-height: 1.3rem;
-        font-size: 0.75rem;
-      }
+  .title {
+    padding: 0 4rem;
+    span {
+      font-size: 16px;
     }
   }
 
-  .cover {
-    padding: 0.5rem;
-    box-sizing: border-box;
-
-    :deep(.el-image) {
-      width: 176px;
+  .content {
+    .info {
+      padding: 0 10px;
+      .details {
+        div {
+          font-size: 14px;
+        }
+      }
+      .abs {
+        span {
+          -webkit-line-clamp: 4;
+          font-size: 14px;
+        }
+      }
+      .data {
+        padding-right: 15px;
+        div {
+          font-size: 14px;
+        }
+      }
+    }
+    .cover {
+      padding: 10px 0;
+      :deep(.el-image) {
+        width: 198px;
+      }
     }
   }
 }
 
-//窗口宽度小于400px
-@media screen and (max-width: 400px) {
+//窗口宽度小于550px
+@media screen and (max-width: 550px) {
   .article__item {
-    height: 100px;
+    height: 190px;
+    padding: 10px;
   }
 
-  .blog-info {
-    gap: 0.2rem;
-
-    .title {
-      padding: 0 2rem;
-      span {
-        font-size: 0.9rem;
-      }
-    }
-
-    .abs {
-      span {
-        -webkit-line-clamp: 1;
-      }
-    }
-
-    .action {
-      a {
-        width: 4rem;
-        line-height: 1.2rem;
-        font-size: 0.9rem;
-        border-width: 1px;
-      }
+  .title {
+    padding: 0 3rem;
+    span {
+      font-size: 16px;
     }
   }
 
-  .cover {
-    :deep(.el-image) {
-      width: 133px;
+  .content {
+    .info {
+      padding: 0 5px;
+      .details {
+        div {
+          font-size: 13px;
+        }
+      }
+      .abs {
+        span {
+          -webkit-line-clamp: 3;
+          font-size: 13px;
+        }
+      }
+      .data {
+        padding-right: 15px;
+        div {
+          font-size: 13px;
+        }
+      }
+    }
+    .cover {
+      padding: 10px 0;
+      :deep(.el-image) {
+        width: 174px;
+      }
+    }
+  }
+}
+
+//窗口宽度小于450px
+@media screen and (max-width: 450px) {
+  .article__item {
+    height: 150px;
+    padding: 5px;
+  }
+
+  .title {
+    padding: 0 2.5rem;
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .content {
+    .info {
+      padding: 0 5px;
+      .details {
+        div {
+          font-size: 11px;
+        }
+      }
+      .abs {
+        span {
+          -webkit-line-clamp: 3;
+          font-size: 11px;
+        }
+      }
+      .data {
+        padding-right: 15px;
+        div {
+          font-size: 11px;
+        }
+      }
+    }
+    .cover {
+      padding: 10px 0;
+      :deep(.el-image) {
+        width: 141px;
+      }
     }
   }
 }

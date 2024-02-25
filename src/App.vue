@@ -55,7 +55,10 @@ watch(
 body {
   /* 避免动画过程中出现水平方向的滚动条 */
   overflow: hidden;
+  /* 禁止选中 */
   user-select: none;
+  /* 禁止移动端点击出现蓝色背景 */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .slide-left-enter-active,
