@@ -163,10 +163,15 @@ emitter.on('blogConfigChanged', () => {
   box-sizing: border-box;
   background-color: white;
   box-shadow: var(--boxShadow);
+  cursor: pointer;
 
   &:nth-child(even) {
     .content {
       flex-direction: row-reverse;
+    }
+    .info {
+      padding-right: 0;
+      padding-left: 15px;
     }
   }
 }
@@ -198,7 +203,7 @@ emitter.on('blogConfigChanged', () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 15px;
+    padding-right: 15px;
 
     .details {
       height: 25%;
@@ -233,11 +238,9 @@ emitter.on('blogConfigChanged', () => {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0rem 1rem;
+      padding: 0 1rem;
       height: 50%;
-      width: 100%;
       box-sizing: border-box;
-      border-left: 3px solid #cecece;
       background-color: #f9f9f9a9;
       span {
         display: -webkit-box;
@@ -297,6 +300,13 @@ emitter.on('blogConfigChanged', () => {
     height: 230px;
     padding: 15px;
     box-shadow: none;
+
+    &:nth-child(even) {
+      .info {
+        padding-right: 0;
+        padding-left: 15px;
+      }
+    }
   }
 
   .article {
@@ -310,7 +320,7 @@ emitter.on('blogConfigChanged', () => {
 
   .content {
     .info {
-      padding: 0 10px;
+      padding-right: 10px;
       .details {
         div {
           font-size: 14px;
@@ -342,6 +352,13 @@ emitter.on('blogConfigChanged', () => {
   .article__item {
     height: 210px;
     padding: 10px;
+
+    &:nth-child(even) {
+      .info {
+        padding-right: 0;
+        padding-left: 10px;
+      }
+    }
   }
 
   .title {
@@ -353,7 +370,7 @@ emitter.on('blogConfigChanged', () => {
 
   .content {
     .info {
-      padding: 0 10px;
+      padding-right: 10px;
       .details {
         div {
           font-size: 14px;
@@ -386,6 +403,13 @@ emitter.on('blogConfigChanged', () => {
   .article__item {
     height: 190px;
     padding: 10px;
+
+    &:nth-child(even) {
+      .info {
+        padding-right: 0;
+        padding-left: 5px;
+      }
+    }
   }
 
   .title {
@@ -397,7 +421,7 @@ emitter.on('blogConfigChanged', () => {
 
   .content {
     .info {
-      padding: 0 5px;
+      padding-right: 5px;
       .details {
         div {
           font-size: 13px;
@@ -430,6 +454,13 @@ emitter.on('blogConfigChanged', () => {
   .article__item {
     height: 150px;
     padding: 5px;
+
+    &:nth-child(even) {
+      .info {
+        padding-right: 0;
+        padding-left: 5px;
+      }
+    }
   }
 
   .title {
@@ -441,7 +472,7 @@ emitter.on('blogConfigChanged', () => {
 
   .content {
     .info {
-      padding: 0 5px;
+      padding-right: 5px;
       .details {
         div {
           font-size: 11px;
