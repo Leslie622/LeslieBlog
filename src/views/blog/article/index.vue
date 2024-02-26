@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="200" :infinite-scroll-disabled="blogList.length >= total" @scroll="scrollHandler">
     <div class="article">
+      <el-empty description="暂无内容" v-if="blogList.length == 0 && loading != true" class="empty" />
       <el-skeleton :loading="loading" animated>
         <template #template>
           <div class="article">
@@ -293,6 +294,10 @@ function viewDetailHandler(blogId: string) {
       border-radius: 5px;
     }
   }
+}
+
+.empty{
+  background-color: var(--blog-article-item-bg);
 }
 
 /**
