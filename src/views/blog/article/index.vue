@@ -33,11 +33,9 @@
         <template #default>
           <div class="article__item" v-for="item in blogList" :key="item.id" @click="viewDetailHandler(item.id)">
             <div class="title">
-              <el-tooltip effect="light" :content="item.title" placement="top-start">
-                <span>
-                  {{ item.title }}
-                </span>
-              </el-tooltip>
+              <span>
+                {{ item.title }}
+              </span>
             </div>
             <div class="content">
               <div class="info">
@@ -256,7 +254,7 @@ function viewDetailHandler(blogId: string) {
       height: 50%;
       width: 100%;
       box-sizing: border-box;
-      background-color: var( --blog-article-item-abs-bg);
+      background-color: var(--blog-article-item-abs-bg);
       span {
         display: -webkit-box;
         overflow: hidden;
