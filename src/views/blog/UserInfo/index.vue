@@ -1,7 +1,7 @@
 <template>
   <div class="user-info">
     <div class="avatar">
-      <img v-if="user.avatar" :src="$ImgPrefix + user.avatar" />
+      <el-image v-if="user.avatar" :src="$ImgPrefix + user.avatar" />
     </div>
     <div class="introduce">
       <span>{{ user.introduce }}</span>
@@ -70,13 +70,17 @@ function linkClickHandler(item: any) {
 }
 
 .avatar {
-  img {
-    border-radius: 50%;
-    width: 6rem;
-  }
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .introduce {
+  display: flex;
+  align-items: center;
+  height: 1.2rem;
+  min-height: 1.2rem;
   font-size: 13px;
   padding: 0 12px;
   color: gray;
