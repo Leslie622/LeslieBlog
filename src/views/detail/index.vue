@@ -61,7 +61,8 @@ const blogInfo = ref<Blog.blogInfo>({
 })
 const linkList = [
   { path: '/blog', name: 'BLOG' },
-  { path: '/diary', name: 'DIARY' }
+  { path: '/diary', name: 'DIARY' },
+  { path: '/home', name: 'HOME' }
 ]
 
 onMounted(() => {
@@ -138,6 +139,7 @@ async function getSingleBlog() {
   width: 820px;
   margin: 0 auto;
   background-color: white;
+  user-select: text;
 }
 
 .title {
@@ -164,6 +166,9 @@ async function getSingleBlog() {
 
   .nav {
     padding-left: 1rem;
+    .nav__item {
+      font-size: 14px;
+    }
   }
 
   .title {

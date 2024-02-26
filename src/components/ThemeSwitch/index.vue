@@ -30,7 +30,7 @@ function switchTheme() {
 
 <style lang="scss" scoped>
 .switch-btn {
-  z-index: 999;
+  z-index: 9999;
   position: absolute;
   top: 0.8rem;
   right: 0.8rem;
