@@ -10,7 +10,7 @@
         <theme-switch class="theme-switch" width="1.5rem"></theme-switch>
       </div>
     </div>
-    <div class="content">
+    <div class="content clearfix">
       <el-skeleton :loading="loading" animated>
         <template #template>
           <div class="title">
@@ -141,17 +141,24 @@ async function getSingleBlog() {
 
 .content {
   width: 820px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
   background-color: var(--detail-content-bg);
   color: var(--detail-content-color);
   user-select: text;
 }
 
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
 .title {
-  margin: 3rem 0;
+  margin: 1rem;
   font-size: 20px;
   font-weight: bold;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   border-left: 4px solid #c51e3a;
 }
 
@@ -159,7 +166,7 @@ async function getSingleBlog() {
   position: absolute;
   padding: 0.8rem;
   transform: translateY(0.25rem);
-  right: .4rem;
+  right: 0.4rem;
 }
 
 /**
@@ -184,7 +191,6 @@ async function getSingleBlog() {
   }
 
   .title {
-    margin: 3rem 1rem;
     font-size: 16px;
   }
 }
