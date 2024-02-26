@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const home = () => import('@/views/home/index.vue')
 const blog = () => import('@/views/blog/index.vue')
 const detail = () => import('@/views/detail/index.vue')
+const notFound = () => import('@/views/404/index.vue')
 
 const article = () => import('@/views/blog/article/index.vue')
 const archive = () => import('@/views/blog/archive/index.vue')
@@ -50,6 +51,14 @@ const router = createRouter({
         title: '详情页'
       },
       component: detail
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      meta: {
+        title: '404'
+      },
+      component: notFound
     }
   ]
 })
