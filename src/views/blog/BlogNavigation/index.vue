@@ -100,7 +100,7 @@ function handleClick(index: number) {
     }
 
     .navigation__item {
-      border: 1px solid #e0e0e0;
+      border: 1px solid var(--blog-nav-border);
       border-radius: 5px;
 
       .icon {
