@@ -10,18 +10,38 @@
       </div>
     </div>
     <div class="content">
-      <div class="title">
-        {{ blogInfo.title }}
-      </div>
-      <v-md-preview :text="blogInfo.content"></v-md-preview>
+      <el-skeleton :loading="loading" animated>
+        <template #template>
+          <div class="title">
+            <el-skeleton-item variant="h1" />
+          </div>
+          <div class="article" style="padding: 2rem">
+            <el-skeleton :rows="10"></el-skeleton>
+          </div>
+        </template>
+        <template #default>
+          <div class="title">
+            {{ blogInfo.title }}
+          </div>
+          <div class="article">
+            <v-md-preview :text="blogInfo.content"></v-md-preview>
+          </div>
+        </template>
+      </el-skeleton>
     </div>
-    <back-top :bottom="100" target=".detail">
-    </back-top>
+    <back-top :bottom="100" target=".detail"> </back-top>
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'detail'
+}
+</script>
 <script setup lang="ts">
 import apiBlog from '@/api/modules/blog'
+
+const loading = ref(true)
 const route = useRoute()
 const blogId = ref()
 const blogInfo = ref<Blog.blogInfo>({
@@ -39,7 +59,6 @@ const blogInfo = ref<Blog.blogInfo>({
   createdAt: '',
   updatedAt: ''
 })
-
 const linkList = [
   { path: '/blog', name: 'BLOG' },
   { path: '/diary', name: 'DIARY' }
@@ -67,6 +86,7 @@ watch(
 async function getSingleBlog() {
   const res = await apiBlog.getSingleBlog({ blogId: blogId.value })
   blogInfo.value = res.data
+  loading.value = false
 }
 </script>
 
@@ -103,8 +123,9 @@ async function getSingleBlog() {
   .nav__item {
     padding: 0.7rem;
     color: #249ffd;
-    transition: opacity 0.3s;
     text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.3s;
     cursor: pointer;
 
     &:hover {
@@ -121,10 +142,33 @@ async function getSingleBlog() {
 
 .title {
   margin: 3rem 0;
-  padding: 1rem 0;
   font-size: 20px;
   font-weight: bold;
-  padding-left: 20px;
+  padding: 1rem 2rem;
   border-left: 4px solid #c51e3a;
+}
+
+/**
+ * ————————————————————响应式——————————————————————
+ */
+
+//窗口宽度小于1024px
+@media screen and (max-width: 1024px) {
+  .header__inner {
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .nav {
+    padding-left: 1rem;
+  }
+
+  .title {
+    margin: 3rem 1rem;
+    font-size: 16px;
+  }
 }
 </style>

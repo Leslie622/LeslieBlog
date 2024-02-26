@@ -3,7 +3,7 @@
     <theme-switch></theme-switch>
     <router-view v-slot="{ Component }">
       <transition :name="transitionName">
-        <keep-alive>
+        <keep-alive :exclude="['detail']">
           <component :is="Component" />
         </keep-alive>
       </transition>
