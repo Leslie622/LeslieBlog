@@ -29,7 +29,7 @@
         </template>
       </el-skeleton>
     </div>
-    <back-top :bottom="100" target=".detail"> </back-top>
+    <back-top target=".detail"> </back-top>
   </div>
 </template>
 

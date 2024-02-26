@@ -50,9 +50,7 @@
                     <Icon icon="material-symbols-light:vertical-align-top" width="1rem"></Icon>
                     置顶
                   </div>
-                  <div class="notOriginal" v-if="!item.isOriginal">
-                    非原创
-                  </div>
+                  <div class="notOriginal" v-if="!item.isOriginal">非原创</div>
                 </div>
                 <div class="abs">
                   <span>
@@ -69,7 +67,7 @@
               <div class="cover" v-if="item.cover">
                 <el-image :src="$ImgPrefix + item.cover" :lazy="true">
                   <template #placeholder>
-                    <el-skeleton-item variant="image" class="el-image" style="height: 100%;display: flex" />
+                    <el-skeleton-item variant="image" class="el-image" style="height: 100%; display: flex" />
                   </template>
                 </el-image>
               </div>
@@ -78,8 +76,7 @@
         </template>
       </el-skeleton>
     </div>
-    <back-top :bottom="100" target=".wrapper">
-    </back-top>
+    <back-top target=".wrapper"> </back-top>
   </div>
 </template>
 
