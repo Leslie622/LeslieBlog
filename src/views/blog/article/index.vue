@@ -42,12 +42,12 @@
               <div class="info">
                 <div class="details">
                   <div class="time">
-                    <Icon icon="material-symbols-light:date-range-outline-rounded" width="1rem"></Icon>
+                    <Icon icon="material-symbols-light:date-range-outline-rounded" class="icon"></Icon>
                     <span>{{ item.updatedAt.slice(0, 10) }}</span>
                   </div>
                   <div class="sticky" v-if="item.isSticky">
-                    <Icon icon="material-symbols-light:vertical-align-top" width="1rem"></Icon>
-                    置顶
+                    <Icon icon="material-symbols-light:vertical-align-top" class="icon"></Icon>
+                    <span> 置顶 </span>
                   </div>
                   <div class="notOriginal" v-if="!item.isOriginal">非原创</div>
                 </div>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="data">
                   <div>
-                    <Icon icon="lets-icons:view-light" width="1.25rem"></Icon>
+                    <Icon icon="lets-icons:view-light" class="icon"></Icon>
                     {{ item.views }}
                   </div>
                 </div>
@@ -170,7 +170,7 @@ function viewDetailHandler(blogId: string) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 15px;
+  padding: 10px;
   height: 250px;
   box-sizing: border-box;
   background-color: var(--blog-article-item-bg);
@@ -218,8 +218,12 @@ function viewDetailHandler(blogId: string) {
     align-items: center;
     padding-right: 15px;
 
+    .icon {
+      font-size: 20px;
+    }
+
     .details {
-      height: 25%;
+      height: 28%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -228,9 +232,11 @@ function viewDetailHandler(blogId: string) {
 
       div {
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 0.3rem;
-        padding: 2px 0 1px;
-        font-size: 14px;
+        height: 1.5rem;
+        font-size: 16px;
         border-bottom: 1px dashed #a8a8a8;
         font-weight: bold;
       }
@@ -252,7 +258,7 @@ function viewDetailHandler(blogId: string) {
       align-items: center;
       justify-content: center;
       padding: 0 1rem;
-      height: 50%;
+      height: 44%;
       width: 100%;
       box-sizing: border-box;
       background-color: var(--blog-article-item-abs-bg);
@@ -262,7 +268,7 @@ function viewDetailHandler(blogId: string) {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
         text-overflow: ellipsis;
-        font-size: 15px;
+        font-size: 16px;
         color: #a1a1a1;
       }
     }
@@ -273,7 +279,7 @@ function viewDetailHandler(blogId: string) {
       align-items: center;
       gap: 1rem;
       padding-right: 15px;
-      height: 25%;
+      height: 28%;
       color: #a1a1a1;
 
       div {
@@ -281,7 +287,7 @@ function viewDetailHandler(blogId: string) {
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   }
@@ -296,7 +302,7 @@ function viewDetailHandler(blogId: string) {
   }
 }
 
-.empty{
+.empty {
   background-color: var(--blog-article-item-bg);
 }
 
@@ -316,7 +322,7 @@ function viewDetailHandler(blogId: string) {
 @media screen and (max-width: 770px) {
   .article__item {
     height: 230px;
-    padding: 15px;
+    padding: 10px;
     box-shadow: none;
 
     &:nth-child(even) {
@@ -339,22 +345,28 @@ function viewDetailHandler(blogId: string) {
   .content {
     .info {
       padding-right: 10px;
+
+      .icon {
+        font-size: 16px;
+      }
+
       .details {
         div {
-          font-size: 14px;
+          height: 1.6rem;
+          font-size: 15px;
         }
       }
       .abs {
         padding: 0 0.8rem;
         span {
           -webkit-line-clamp: 4;
-          font-size: 14px;
+          font-size: 15px;
         }
       }
       .data {
         padding-right: 15px;
         div {
-          font-size: 14px;
+          font-size: 15px;
         }
       }
     }
@@ -383,7 +395,7 @@ function viewDetailHandler(blogId: string) {
   .title {
     padding: 0 4rem;
     span {
-      font-size: 16px;
+      font-size: 17px;
     }
   }
 
@@ -392,20 +404,20 @@ function viewDetailHandler(blogId: string) {
       padding-right: 10px;
       .details {
         div {
-          font-size: 14px;
+          font-size: 15px;
         }
       }
       .abs {
         padding: 0 0.6rem;
         span {
           -webkit-line-clamp: 4;
-          font-size: 14px;
+          font-size: 15px;
         }
       }
       .data {
         padding-right: 15px;
         div {
-          font-size: 14px;
+          font-size: 15px;
         }
       }
     }
@@ -442,22 +454,26 @@ function viewDetailHandler(blogId: string) {
   .content {
     .info {
       padding-right: 5px;
+
+      .icon {
+        font-size: 16px;
+      }
       .details {
         div {
-          font-size: 13px;
+          font-size: 15px;
         }
       }
       .abs {
         padding: 0 0.5rem;
         span {
           -webkit-line-clamp: 3;
-          font-size: 13px;
+          font-size: 15px;
         }
       }
       .data {
         padding-right: 15px;
         div {
-          font-size: 13px;
+          font-size: 15px;
         }
       }
     }
@@ -487,7 +503,7 @@ function viewDetailHandler(blogId: string) {
   .title {
     padding: 0 2.5rem;
     span {
-      font-size: 14px;
+      font-size: 15px;
     }
   }
 
@@ -502,13 +518,13 @@ function viewDetailHandler(blogId: string) {
       .abs {
         span {
           -webkit-line-clamp: 3;
-          font-size: 11px;
+          font-size: 13px;
         }
       }
       .data {
         padding-right: 15px;
         div {
-          font-size: 11px;
+          font-size: 13px;
         }
       }
     }
