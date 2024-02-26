@@ -7,12 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Archive: typeof import('./../views/blog/archive/index.vue')['default']
-    Article: typeof import('./../views/blog/article/index.vue')['default']
     BackTop: typeof import('./../components/BackTop/index.vue')['default']
-    Blog: typeof import('./../views/blog/index.vue')['default']
-    BlogConfig: typeof import('./../views/blog/BlogConfig/index.vue')['default']
-    BlogNavigation: typeof import('./../views/blog/BlogNavigation/index.vue')['default']
     ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDivider: typeof import('element-plus/es')['ElDivider']
@@ -24,14 +19,11 @@ declare module 'vue' {
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
-    ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    Home: typeof import('./../views/home/index.vue')['default']
     Icon: typeof import('@iconify/vue')['Icon']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SortButton: typeof import('./../components/SortButton/index.vue')['default']
     ThemeSwitch: typeof import('./../components/ThemeSwitch/index.vue')['default']
-    UserInfo: typeof import('./../views/blog/UserInfo/index.vue')['default']
   }
   export interface ComponentCustomProperties {
     vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
