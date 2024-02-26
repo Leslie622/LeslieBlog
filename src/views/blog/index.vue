@@ -15,6 +15,7 @@
               <div class="logo">
                 <p>LESLIE BLOG</p>
               </div>
+              <theme-switch class="theme-switch-header" width="1.7rem" style="--theme-switch-color: white"></theme-switch>
             </div>
             <blog-config></blog-config>
             <blog-navigation></blog-navigation>
@@ -32,6 +33,7 @@
         </router-view>
       </div>
     </div>
+    <theme-switch class="theme-switch-blog" width="1.7rem"></theme-switch>
   </div>
 </template>
 
@@ -107,11 +109,8 @@ emitter.on('pullupHeader', () => {
 .inner__block {
   margin-bottom: 10px;
   padding-bottom: 5px;
-  background-color: var(--blog-block-color);
+  background-color: var(--blog-block-backgorund);
   box-shadow: var(--boxShadow);
-  transition:
-    background-color 0.5s,
-    box-shadow 0.5s;
 }
 
 .reactive-header {
@@ -121,7 +120,8 @@ emitter.on('pullupHeader', () => {
   height: 130px;
   color: #fff;
   background-color: var(--logo-backgorund);
-  transition: background-color 0.5s;
+  border-bottom: 5px solid var(--blog-header-border);
+  box-sizing: border-box;
 
   .switch {
     position: absolute;
@@ -162,6 +162,21 @@ emitter.on('pullupHeader', () => {
 
 .router-view {
   margin-left: 240px;
+}
+
+.theme-switch-header {
+  display: none;
+  position: absolute;
+  padding: 1rem;
+  transform: translateY(.25rem);
+  right: 1rem;
+}
+
+.theme-switch-blog {
+  position: absolute;
+  padding: 1rem;
+  top: 1rem;
+  right: 1rem;
 }
 
 /**
@@ -211,6 +226,14 @@ emitter.on('pullupHeader', () => {
 
   .router-view {
     margin-left: 0;
+  }
+
+  .theme-switch-header {
+    display: block;
+  }
+
+  .theme-switch-blog {
+    display: none;
   }
 }
 </style>

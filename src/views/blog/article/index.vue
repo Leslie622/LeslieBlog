@@ -174,7 +174,7 @@ function viewDetailHandler(blogId: string) {
   padding: 15px;
   height: 250px;
   box-sizing: border-box;
-  background-color: white;
+  background-color: var(--blog-article-item-bg);
   box-shadow: var(--boxShadow);
   cursor: pointer;
 
@@ -195,6 +195,7 @@ function viewDetailHandler(blogId: string) {
   justify-content: center;
   padding: 0 4rem;
   height: 20%;
+  color: var(--blog-article-item-title-color);
 
   span {
     display: -webkit-box;
@@ -224,14 +225,14 @@ function viewDetailHandler(blogId: string) {
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      color: #a1a1a1;
+      color: #a8a8a8;
 
       div {
         display: flex;
         gap: 0.3rem;
         padding: 2px 0 1px;
         font-size: 14px;
-        border-bottom: 1px dashed #a1a1a1;
+        border-bottom: 1px dashed #a8a8a8;
         font-weight: bold;
       }
 
@@ -255,7 +256,7 @@ function viewDetailHandler(blogId: string) {
       height: 50%;
       width: 100%;
       box-sizing: border-box;
-      background-color: #f9f9f9a9;
+      background-color: var( --blog-article-item-abs-bg);
       span {
         display: -webkit-box;
         overflow: hidden;

@@ -1,54 +1,67 @@
 :root {
   --base-color: black;
-  --theme-switch-color:red;
-  --blog-backgorund: #eee;
-  --blog-block-color:white;
-  --logo-backgorund:#222222;
-  --boxShadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
+  // —————————————————————————— 覆盖Element —————————————————————————— //
 
+  --el-transition-duration: 0; //过渡
+  --el-transition-duration-fast: 0 !important; //过渡
 
+  // —————————————————————————— Blog页面 —————————————————————————— //
 
+  --blog-backgorund: #eee; //整体背景颜色
+  --boxShadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.12); //boxShadow
 
+  /**
+   * 侧边栏
+   */
 
+  --blog-block-backgorund: white; //块背景颜色
+  --logo-backgorund: #222222; //logo背景颜色
 
+  /**
+   * 侧边栏：Header
+   */
 
+  --blog-header-border: #222222;
 
+  /**
+   * 侧边栏: Config
+   */
 
+  --blog-config-header-bg: white; //背景颜色
+  --blog-config-header-border: rgba(0, 0, 0, 0.24); //border颜色
+  --blog-config-submit-color: white; //submit按钮文字颜色
+  --blog-config-submit-bg: #222222; //submit按钮背景颜色
+  --blog-config-sort-border: #dcdfe6; //sort边框颜色
+  --blog-config-sort-color: black; //sort文字颜色
 
+  /**
+   * 侧边栏导航
+   */
 
+  --blog-nav-color: black; //导航文字颜色
+  --blog-nav-hover-bg: #f5f5f5; //导航hover颜色
 
+  // —————————————————————————— article组件 —————————————————————————— //
 
+  --blog-article-item-bg: white; //article-item 背景颜色
+  --blog-article-item-title-color: black; // article-item title文字颜色
+  --blog-article-item-abs-bg: #f9f9f9a9; // article-item abs背景颜色
 
+  // —————————————————————————— detail页面 —————————————————————————— //
 
+  --detail-bg: white; //背景颜色
+  --detail-header-bg: white; //header背景颜色
+  --detail-header-border: #dcdfe6; //border颜色
+  --detail-header-bg-img: radial-gradient(transparent 1px, var(--detail-header-bg) 1px); //header背景图片
+  --detail-content-bg: white; //content背景颜色
+  --detail-content-color: black; //content文字颜色
 
+  // —————————————————————————— themeSwitch组件 —————————————————————————— //
 
+  --theme-switch-color: black;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+  // —————————————————————————— home页面 —————————————————————————— //
   --home-backgorund: linear-gradient(
       339deg,
       rgba(47, 47, 47, 0.02) 0%,

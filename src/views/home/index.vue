@@ -11,6 +11,7 @@
         </router-link>
       </div>
     </div>
+    <theme-switch class="theme-switch" width="1.8rem"></theme-switch>
   </div>
 </template>
 
@@ -82,5 +83,12 @@ const linkList = [
       opacity: 0.5;
     }
   }
+}
+
+.theme-switch {
+  padding: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 </style>

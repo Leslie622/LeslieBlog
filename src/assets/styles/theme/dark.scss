@@ -1,48 +1,69 @@
-.dark {
+html.dark {
   --base-color: white;
-  --blog-backgorund: #000000;
-  --theme-switch-color:blue;
-  --blog-block-color: #242424;
-  --logo-backgorund:#464646;
-  --boxShadow: 0 2px 2px 0 rgba(255, 255, 255, 0.12), 0 3px 1px -2px rgba(255, 255, 255, 0.06), 0 1px 5px 0 rgba(255, 255, 255, 0.12);
 
+  // —————————————————————————— 覆盖Element —————————————————————————— //
 
+  --el-bg-color: #242424; //分割线背景
+  --el-transition-duration: 0; //过渡
+  --el-transition-duration-fast: 0 !important; //过渡
+  --el-color-primary: #c51e3a; //主题色：primary
 
+  // —————————————————————————— Blog页面 —————————————————————————— //
 
+  --blog-backgorund: #000000; //整体背景颜色
+  --boxShadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.12); //boxShadow
 
+  /**
+   * 侧边栏
+   */
 
+  --blog-block-backgorund: #242424; //块背景颜色
+  --logo-backgorund: #242424; //logo背景颜色
 
+  /**
+   * 侧边栏：Header
+   */
 
+  --blog-header-border: black;
 
+  /**
+   * 侧边栏: Config
+   */
 
+  --blog-config-header-bg: rgb(29, 29, 29); //背景颜色
+  --blog-config-header-border: black; //border颜色
+  --blog-config-submit-color: #a8a8a8; //submit按钮文字颜色
+  --blog-config-submit-bg: black; //submit按钮背景颜色
+  --blog-config-sort-border: #4c4d4f; //sort边框颜色
+  --blog-config-sort-color: #a8a8a8; //sort文字颜色
 
+  /**
+   * 侧边栏导航
+   */
 
+  --blog-nav-color: #a8a8a8; //导航文字颜色
+  --blog-nav-hover-bg: black; //导航hover颜色
 
+  // —————————————————————————— article组件 —————————————————————————— //
 
+  --blog-article-item-bg: #242424; //article-item 背景颜色
+  --blog-article-item-title-color: #a8a8a8; // article-item title文字颜色
+  --blog-article-item-abs-bg: #242424; // article-item abs背景颜色
 
+  // —————————————————————————— detail页面 —————————————————————————— //
 
+  --detail-bg: black; //背景颜色
+  --detail-header-bg: #242424; //header背景颜色
+  --detail-header-border: rgba(84, 84, 84, 0.48); //border颜色
+  --detail-header-bg-img: radial-gradient(transparent -5px, var(--detail-header-bg) 2px); //header背景图片
+  --detail-content-bg: #242424; //content背景颜色
+  --detail-content-color: #a8a8a8; //content文字颜色
 
+  // —————————————————————————— themeSwitch组件 —————————————————————————— //
 
+  --theme-switch-color: #a8a8a8;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // —————————————————————————— home页面 —————————————————————————— //
   --home-backgorund: linear-gradient(
       12deg,
       rgba(193, 193, 193, 0.08) 0%,

@@ -51,7 +51,8 @@ function sortHandler() {
   display: inline-block;
   overflow: hidden;
   border-radius: 3px;
-  box-shadow: 0 0 0 1px #dcdfe6 inset;
+  color: var(--blog-config-sort-color);
+  border: 1px solid var(--blog-config-sort-border);
   cursor: pointer;
 }
 
@@ -90,17 +91,17 @@ function sortHandler() {
 
     .ascending {
       top: -4px;
-      border-bottom-color: #dcdfe6;
+      border-bottom-color: var(--blog-config-sort-border);
       &.active {
-        border-bottom-color: #222222;
+        border-bottom-color: black;
       }
     }
 
     .deascending {
       bottom: -4px;
-      border-top-color: #dcdfe6;
+      border-top-color: var(--blog-config-sort-border);
       &.active {
-        border-top-color: #222222;
+        border-top-color: black;
       }
     }
   }

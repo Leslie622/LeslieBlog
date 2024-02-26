@@ -1,6 +1,5 @@
 <template>
-  <div class="app" :class="theme">
-    <theme-switch></theme-switch>
+  <div class="app">
     <router-view v-slot="{ Component }">
       <transition :name="transitionName">
         <keep-alive :exclude="['detail']">
@@ -12,18 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { useCommonStore } from '@/stores/modules/common'
 import emitter from '@/utils/mitt'
 
-const commonStore = useCommonStore()
 const route = useRoute()
 const isTransition = ref<boolean>(false) //初始不开启动画
 const transitionName = ref<string>() //过渡动画名
 const lastPath = ref<string>()
-//主题
-const theme = computed(() => {
-  return commonStore.theme
-})
 
 /**
  * 根据路由变化应用过渡动画

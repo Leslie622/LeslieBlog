@@ -7,6 +7,7 @@
             {{ item.name }}
           </router-link>
         </div>
+        <theme-switch class="theme-switch" width="1.5rem"></theme-switch>
       </div>
     </div>
     <div class="content">
@@ -93,9 +94,10 @@ async function getSingleBlog() {
 
 <style lang="scss" scoped>
 .detail {
+  background-color: var(--detail-bg);
   position: relative;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .header {
@@ -103,14 +105,15 @@ async function getSingleBlog() {
   z-index: 999;
   top: 0;
   height: 60px;
-  border-bottom: 1px solid #dcdfe6;
-  background-image: radial-gradient(transparent 1px, #ffffff 1px);
+  border-bottom: 1px solid var(--detail-header-border);
+  background-image: var(--detail-header-bg-img);
   background-size: 4px 4px;
   backdrop-filter: saturate(50%) blur(4px);
   -webkit-backdrop-filter: saturate(50%) blur(4px);
 }
 
 .header__inner {
+  position: relative;
   display: flex;
   margin: auto;
   align-items: center;
@@ -126,6 +129,7 @@ async function getSingleBlog() {
     color: #249ffd;
     text-decoration: none;
     font-size: 16px;
+    font-weight: bold;
     transition: opacity 0.3s;
     cursor: pointer;
 
@@ -138,7 +142,8 @@ async function getSingleBlog() {
 .content {
   width: 820px;
   margin: 0 auto;
-  background-color: white;
+  background-color: var(--detail-content-bg);
+  color: var(--detail-content-color);
   user-select: text;
 }
 
@@ -148,6 +153,13 @@ async function getSingleBlog() {
   font-weight: bold;
   padding: 1rem 2rem;
   border-left: 4px solid #c51e3a;
+}
+
+.theme-switch {
+  position: absolute;
+  padding: 0.8rem;
+  transform: translateY(0.25rem);
+  right: .4rem;
 }
 
 /**

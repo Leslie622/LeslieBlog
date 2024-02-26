@@ -42,11 +42,11 @@ function handleClick(index: number) {
   align-items: center;
   height: 40px;
   padding-left: 0.5rem;
-  color: black;
+  color: var(--blog-nav-color);
   font-size: 13px;
   text-decoration: none;
   &:hover {
-    background-color: #f5f5f5;
+    background-color: var(--blog-nav-hover-bg);
   }
 
   &.router-link-active {

@@ -5,6 +5,8 @@ import { txCos } from './config/common'
 import App from './App.vue'
 import router from './router'
 
+//element黑暗模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 //初始化CSS
 import 'normalize.css'
 //全局CSS

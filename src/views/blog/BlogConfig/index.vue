@@ -117,11 +117,12 @@ function submitHandler() {
   font-size: 13px;
   color: #a8a8a8;
   border-radius: 5px;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--blog-config-header-border);
   box-shadow:
-    rgba(0, 0, 0, 0.12) 0px 1px 3px,
-    rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    var(--blog-config-header-border) 0px 1px 3px,
+    var(--blog-config-header-border) 0px 1px 2px;
   box-sizing: border-box;
+  background-color: var(--blog-config-header-bg);
   cursor: pointer;
 }
 
@@ -143,9 +144,9 @@ function submitHandler() {
     margin: 0.6rem 0;
     padding: 10px;
     font-size: 13px;
-    color: white;
+    color: var(--blog-config-submit-color);
     border-radius: 5px;
-    background-color: #222222;
+    background-color: var(--blog-config-submit-bg);
     cursor: pointer;
   }
 }
