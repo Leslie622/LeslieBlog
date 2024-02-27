@@ -13,18 +13,8 @@ import 'normalize.css'
 import '@/assets/styles/globals.scss'
 //自定义指令
 import directives from '@/directives/index'
-
-//markdown渲染组件
-import VMdPreview from '@kangc/v-md-editor/lib/preview'
-import '@kangc/v-md-editor/lib/style/preview.css'
-import githubTheme from '@kangc/v-md-editor/lib/theme/github.js'
-import '@kangc/v-md-editor/lib/theme/style/github.css'
-// highlightjs
-import hljs from 'highlight.js'
-
-VMdPreview.use(githubTheme, {
-  Hljs: hljs
-})
+//markdown预览组件
+import VMdPreview from './utils/md-preview'
 
 const app = createApp(App)
 //图片前缀

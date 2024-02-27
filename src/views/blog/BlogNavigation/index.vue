@@ -43,7 +43,7 @@ function handleClick(index: number) {
   height: 40px;
   padding-left: 0.5rem;
   color: var(--blog-nav-color);
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: none;
   &:hover {
     background-color: var(--blog-nav-hover-bg);

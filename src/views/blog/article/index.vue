@@ -261,7 +261,6 @@ function viewDetailHandler(blogId: string) {
       height: 44%;
       width: 100%;
       box-sizing: border-box;
-      background-color: var(--blog-article-item-abs-bg);
       span {
         display: -webkit-box;
         overflow: hidden;
@@ -269,7 +268,7 @@ function viewDetailHandler(blogId: string) {
         -webkit-line-clamp: 4;
         text-overflow: ellipsis;
         font-size: 16px;
-        color: #a1a1a1;
+        color: #6d6d6d;
       }
     }
 

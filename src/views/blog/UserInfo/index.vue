@@ -40,8 +40,8 @@ const user = ref({
 })
 
 const linkIcons = [
-  { text: '我的 Gitee 主页', icon: 'simple-icons:gitee', href: 'https://gitee.com/Lyf-622' },
-  { text: '我的 GitHub 主页', icon: 'simple-icons:github', href: 'https://github.com/Leslie622' },
+  { text: '我的Gitee主页', icon: 'simple-icons:gitee', href: 'https://gitee.com/Lyf-622' },
+  { text: '我的GitHub主页', icon: 'simple-icons:github', href: 'https://github.com/Leslie622' },
   { text: 'wechat', icon: 'simple-icons:wechat', img: weChat }
 ]
 

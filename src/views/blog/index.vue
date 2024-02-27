@@ -156,8 +156,7 @@ emitter.on('pullupHeader', () => {
 }
 
 .logo {
-  font-family: Arial;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .router-view {
@@ -168,7 +167,7 @@ emitter.on('pullupHeader', () => {
   display: none;
   position: absolute;
   padding: 1rem;
-  transform: translateY(.25rem);
+  transform: translateY(0.25rem);
   right: 1rem;
 }
 

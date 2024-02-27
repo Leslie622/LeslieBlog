@@ -4,11 +4,19 @@
 @import "./theme/dark.scss";
 @import "./theme/light.scss";
 
-//响应式
+/**
+ * 响应式
+ */
 @import "./responsive/index.scss";
 
-//字体
+/**
+ * 字体
+ */
 @font-face {
   font-family: "Monoton-Regular";
   src: url("@/assets/fonts/Monoton-Regular.ttf");
+}
+@font-face {
+  font-family: "JetBrainsMono-Regular";
+  src: url("@/assets/fonts/JetBrainsMono-Regular.ttf");
 }

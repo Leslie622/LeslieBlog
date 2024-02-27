@@ -62,6 +62,7 @@ body {
   user-select: none;
   /* 禁止移动端点击出现蓝色背景 */
   -webkit-tap-highlight-color: transparent;
+  font-family: 'JetBrainsMono-Regular';
 }
 
 .slide-left-enter-active,

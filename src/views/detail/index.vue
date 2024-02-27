@@ -156,7 +156,7 @@ async function getSingleBlog() {
 
 .title {
   margin: 1rem;
-  font-size: 20px;
+  font-size: 1.6rem;
   font-weight: bold;
   padding: 1rem 1.5rem;
   border-left: 4px solid #c51e3a;
@@ -191,7 +191,59 @@ async function getSingleBlog() {
   }
 
   .title {
-    font-size: 16px;
+    font-size: 1.8rem;
+  }
+}
+</style>
+<style lang="scss">
+/**
+ * ————————————————————github markdown 主题覆盖——————————————————————
+ */
+.v-md-editor-preview {
+  .github-markdown-body {
+    padding: 1rem;
+    font-family: 'JetBrainsMono-Regular';
+  }
+
+  .github-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines {
+    line-height: 1.45;
+  }
+
+  .github-markdown-body div[class*='v-md-pre-wrapper-'] {
+    border-radius: 5px;
+    background-color: var(--detail-md-github-code-bg);
+  }
+
+  //h1 h2 不显示底部border
+  .github-markdown-body h1,
+  .github-markdown-body h2 {
+    border: none;
+  }
+
+  .github-markdown-body h1 {
+    color: rgb(192, 72, 81);
+  }
+
+  //h3 - h6 标题color改变
+  .github-markdown-body h2,
+  .github-markdown-body h3,
+  .github-markdown-body h4,
+  .github-markdown-body h5,
+  .github-markdown-body h6 {
+    color: rgb(19, 92, 224);
+  }
+}
+
+/**
+ * ————————————————————响应式：markdown github 主题覆盖——————————————————————
+ */
+
+//窗口宽度小于1024px
+@media screen and (max-width: 1024px) {
+  .v-md-editor-preview {
+    .github-markdown-body {
+      font-size: 15px;
+    }
   }
 }
 </style>

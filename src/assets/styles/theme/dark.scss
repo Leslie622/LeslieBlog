@@ -43,13 +43,12 @@ html.dark {
 
   --blog-nav-color: #a8a8a8; //导航文字颜色
   --blog-nav-hover-bg: black; //导航hover颜色
-  --blog-nav-border:#4c4d4f; //移动端导航边框颜色
+  --blog-nav-border: #4c4d4f; //移动端导航边框颜色
 
   // —————————————————————————— article组件 —————————————————————————— //
 
   --blog-article-item-bg: #242424; //article-item 背景颜色
   --blog-article-item-title-color: #a8a8a8; // article-item title文字颜色
-  --blog-article-item-abs-bg: #242424; // article-item abs背景颜色
 
   // —————————————————————————— detail页面 —————————————————————————— //
 
@@ -59,6 +58,12 @@ html.dark {
   --detail-header-bg-img: radial-gradient(transparent -5px, var(--detail-header-bg) 2px); //header背景图片
   --detail-content-bg: #242424; //content背景颜色
   --detail-content-color: #a8a8a8; //content文字颜色
+
+  /**
+   * markdown github主题
+   */
+
+  --detail-md-github-code-bg: #f6f8fa;
 
   // —————————————————————————— themeSwitch组件 —————————————————————————— //
 

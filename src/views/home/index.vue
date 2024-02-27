@@ -40,7 +40,7 @@ const linkList = [
   position: relative;
   display: inline-block;
   font-family: Monoton-Regular;
-  font-size: 8rem;
+  font-size: 7rem;
 
   .logo-light {
     color: #fff;
@@ -70,11 +70,10 @@ const linkList = [
 
 .content__nav {
   margin: 0.5rem 0rem;
-  font-family: Arial;
 
   .item {
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #249ffd;
     transition: opacity 0.3s;
     text-decoration: none;
@@ -90,5 +89,18 @@ const linkList = [
   position: absolute;
   top: 1rem;
   right: 1rem;
+}
+
+/**
+ * ————————————————————响应式——————————————————————
+ */
+
+//窗口宽度小于1024px
+@media screen and (max-width: 1024px) {
+  .content__nav {
+    .item {
+      font-size: 1.55rem;
+    }
+  }
 }
 </style>
