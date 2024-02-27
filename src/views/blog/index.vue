@@ -15,7 +15,7 @@
               <div class="logo">
                 <p>LESLIE BLOG</p>
               </div>
-              <theme-switch class="theme-switch-header" width="1.7rem" style="--theme-switch-color: white"></theme-switch>
+              <theme-switch class="theme-switch-header" width="2rem" style="--theme-switch-color: white"></theme-switch>
             </div>
             <blog-config></blog-config>
             <blog-navigation></blog-navigation>

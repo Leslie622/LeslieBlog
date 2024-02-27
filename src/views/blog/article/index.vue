@@ -456,7 +456,7 @@ function viewDetailHandler(blogId: string) {
       padding-right: 5px;
 
       .icon {
-        font-size: 16px;
+        font-size: 14px;
       }
       .details {
         div {

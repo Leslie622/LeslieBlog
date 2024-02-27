@@ -7,7 +7,7 @@
             {{ item.name }}
           </router-link>
         </div>
-        <theme-switch class="theme-switch" width="1.5rem"></theme-switch>
+        <theme-switch class="theme-switch" width="1.7rem"></theme-switch>
       </div>
     </div>
     <div class="content clearfix">

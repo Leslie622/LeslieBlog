@@ -1,9 +1,9 @@
 <template>
   <div class="navigation">
-    <div v-for="(item, index) in navItems" :key="index" :class="{ 'is-active': navigationActive === index }" @click="handleClick(index)">
+    <div v-for="(item, index) in navItems" :key="index" @click="handleClick(index)">
       <router-link :to="item.path" class="navigation__item">
         <Icon :icon="item.icon" class="icon"></Icon>
-        <Icon icon="system-uicons:check" class="active-icon" color="#C51E3A"></Icon>
+        <Icon icon="iconamoon:check-bold" class="active-icon" color="#960018"></Icon>
         <span>{{ item.name }}</span>
       </router-link>
     </div>
@@ -89,15 +89,6 @@ function handleClick(index: number) {
   .navigation {
     padding: 0 1rem;
     gap: 5px;
-
-    .is-active {
-      transition: border-width 0.2s ease-out;
-      border-right: 6px solid #c51e3a;
-      .navigation__item {
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-      }
-    }
 
     .navigation__item {
       border: 1px solid var(--blog-nav-border);

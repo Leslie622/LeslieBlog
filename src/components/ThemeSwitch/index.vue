@@ -1,7 +1,7 @@
 <template>
   <div class="switch-btn" @click="switchTheme">
-    <Icon icon="line-md:lightbulb" v-if="commonStore.theme == Theme.Light" v-bind="$attrs"></Icon>
-    <Icon icon="line-md:lightbulb-off" v-if="commonStore.theme == Theme.Dark" v-bind="$attrs"></Icon>
+    <Icon icon="line-md:moon-alt-to-sunny-outline-loop-transition" v-if="commonStore.theme == Theme.Light" v-bind="$attrs"></Icon>
+    <Icon icon="line-md:sunny-filled-loop-to-moon-filled-loop-transition" v-if="commonStore.theme == Theme.Dark" v-bind="$attrs"></Icon>
   </div>
 </template>
 
