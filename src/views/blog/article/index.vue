@@ -267,6 +267,8 @@ function viewDetailHandler(blogId: string) {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
         text-overflow: ellipsis;
+        word-wrap:break-word;
+        word-break:break-all;
         font-size: 16px;
         color: #6d6d6d;
       }
