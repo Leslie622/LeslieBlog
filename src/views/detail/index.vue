@@ -232,6 +232,11 @@ async function getSingleBlog() {
   .github-markdown-body h6 {
     color: rgb(19, 92, 224);
   }
+
+  //ul padding缩小
+  .github-markdown-body ul{
+    padding-left: 2rem;
+  }
 }
 
 /**
@@ -242,6 +247,7 @@ async function getSingleBlog() {
 @media screen and (max-width: 1024px) {
   .v-md-editor-preview {
     .github-markdown-body {
+      padding: 1.5rem;
       font-size: 15px;
     }
   }
