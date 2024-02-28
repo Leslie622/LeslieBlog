@@ -14,9 +14,6 @@ Vite5 + Vue3.4 + TypeScript + Sass + ElementPlus + Axios + Pinia + Iconify
 
 ### PC
 
-<p align="center">
-<img src="https://leslie-blog-1314141789.cos.ap-nanjing.myqcloud.com/image/BlogPcView.png" />
-</p>
 
 <p align="center">
 <img src="https://leslie-blog-1314141789.cos.ap-nanjing.myqcloud.com/image/blogPcView.gif" />
@@ -24,9 +21,6 @@ Vite5 + Vue3.4 + TypeScript + Sass + ElementPlus + Axios + Pinia + Iconify
 
 ### Android
 
-<p align="center">
-<img src="https://leslie-blog-1314141789.cos.ap-nanjing.myqcloud.com/image/blogAndroidView.jpg" />
-</p>
 
 <p align="center">
 <img src="https://leslie-blog-1314141789.cos.ap-nanjing.myqcloud.com/image/blogAndroidView.gif" />
