@@ -202,7 +202,7 @@ function viewDetailHandler(blogId: string) {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     text-overflow: ellipsis;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: bold;
   }
 }
@@ -238,17 +238,18 @@ function viewDetailHandler(blogId: string) {
         height: 1.5rem;
         font-size: 16px;
         border-bottom: 1px dashed #a8a8a8;
-        font-weight: bold;
       }
 
       .sticky {
         color: #c51e3a;
         border-color: #c51e3a;
+        font-weight: bold;
       }
 
       .notOriginal {
         color: #ed9121;
         border-color: #ed9121;
+        font-weight: bold;
       }
     }
 
@@ -267,8 +268,8 @@ function viewDetailHandler(blogId: string) {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
         text-overflow: ellipsis;
-        word-wrap:break-word;
-        word-break:break-all;
+        word-wrap: break-word;
+        word-break: break-all;
         font-size: 16px;
         color: #6d6d6d;
       }

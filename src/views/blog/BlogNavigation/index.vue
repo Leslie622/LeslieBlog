@@ -56,8 +56,6 @@ function handleClick(index: number) {
   }
 
   .icon {
-    position: relative;
-    top: -1px;
     padding: 0 0.8rem;
     font-size: 1.1rem;
   }
