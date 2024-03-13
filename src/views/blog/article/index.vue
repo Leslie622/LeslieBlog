@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="cover" v-if="item.cover">
-                <el-image :src="$ImgPrefix + item.cover" :lazy="true">
+                <el-image :src="$ImgPrefix + item.cover" loading="lazy">
                   <template #placeholder>
                     <el-skeleton-item variant="image" class="el-image" style="height: 100%; display: flex" />
                   </template>
