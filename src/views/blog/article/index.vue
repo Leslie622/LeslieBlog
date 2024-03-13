@@ -143,7 +143,9 @@ emitter.on('blogConfigChanged', () => {
  * 查看详情处理函数
  */
 function viewDetailHandler(blogId: string) {
-  router.push({ path: '/detail', query: { blogId } })
+  //跳转并打开新窗口
+  const routeData = router.resolve({ path: '/detail', query: { blogId } })
+  window.open(routeData.href, '_blank')
 }
 </script>
 
