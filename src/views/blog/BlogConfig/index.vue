@@ -30,6 +30,11 @@
         <span>确定</span>
       </div>
     </div>
+    <div class="category-nav">
+      <div v-for="item in categoryList" :key="item.id" @click="changeCategoryDirect(item.id)" :class="{ 'cateNav--active': blogStore.blogQueryConfig.category == item.id }">
+        {{ item.name }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -69,6 +74,15 @@ function changeCategory(categoryId: string) {
   blogStore.blogQueryConfig.category = categoryId
   //记录博客分类到本地
   localStorage.setItem('categoryId', categoryId)
+}
+
+/**
+ * 直接切换博客分类
+ */
+function changeCategoryDirect(categoryId: string) {
+  changeCategory(categoryId)
+  //触发：博客配置参数变化
+  emitter.emit('blogConfigChanged')
 }
 
 /**
@@ -151,6 +165,30 @@ function submitHandler() {
   }
 }
 
+.category-nav {
+  position: absolute;
+  top: 0;
+  padding: 0.5rem 0;
+  left: 1000px; //根据版心宽度
+
+  div {
+    padding: 0.5rem 0.8rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    border-right: 2px solid transparent;
+    background-color: var(--blog-config-category-bg);
+    color: var(--blog-config-category-color);
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  }
+
+  .cateNav--active {
+    border-right: 2px solid var(--blog-config-category-border);
+  }
+}
+
 .search-input__suffix {
   display: flex;
   justify-content: center;
@@ -178,6 +216,10 @@ function submitHandler() {
 @media screen and (max-width: 1024px) {
   .content {
     padding: 1rem 2rem;
+  }
+
+  .category-nav {
+    display: none;
   }
 }
 

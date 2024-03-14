@@ -63,7 +63,7 @@ emitter.on('pullupHeader', () => {
 .content {
   margin: 0 auto;
   //版心
-  width: 1100px;
+  width: 1000px;
 }
 
 .header {
@@ -110,7 +110,7 @@ emitter.on('pullupHeader', () => {
   margin-bottom: 10px;
   padding-bottom: 5px;
   background-color: var(--blog-block-backgorund);
-  box-shadow: var(--boxShadow);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
 
 .reactive-header {

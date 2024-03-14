@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="200" :infinite-scroll-disabled="blogList.length >= total" @scroll="scrollHandler">
+  <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="20" :infinite-scroll-disabled="blogList.length >= total" @scroll="scrollHandler" ref="articleRef">
     <div class="article">
       <el-empty description="暂无内容" v-if="blogList.length == 0 && loading != true" class="empty" />
       <el-skeleton :loading="loading" animated>
@@ -32,7 +32,7 @@
           </div>
         </template>
         <template #default>
-          <div class="article__item" v-for="item in blogList" :key="item.id" @click="viewDetailHandler(item.id)">
+          <div class="article__item" v-for="item in blogList" :key="item.id" @click="viewDetailHandler(item.id)" v-visible>
             <div class="title">
               <span>
                 {{ item.title }}
@@ -75,7 +75,7 @@
         </template>
       </el-skeleton>
     </div>
-    <back-top target=".wrapper"> </back-top>
+    <back-top target=".wrapper" />
   </div>
 </template>
 
@@ -87,6 +87,7 @@ import { throttle } from '@/utils/common'
 
 const router = useRouter()
 const loading = ref<boolean>(true)
+const articleRef = ref()
 const blogList = ref<Blog.blogInfo[]>([])
 const total = ref<number>(0)
 const blogStore = useBlogStore()
@@ -135,6 +136,8 @@ async function getMoreBlog() {
 emitter.on('blogConfigChanged', () => {
   //重置页数
   blogStore.blogQueryConfig.pageNum = 1
+  //回到顶部
+  articleRef.value.scrollTop = 0
   //获取新数据
   getBlogList()
 })
@@ -176,7 +179,7 @@ function viewDetailHandler(blogId: string) {
   height: 250px;
   box-sizing: border-box;
   background-color: var(--blog-article-item-bg);
-  box-shadow: var(--boxShadow);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   cursor: pointer;
 
   &:nth-child(even) {
