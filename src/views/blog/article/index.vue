@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="20" :infinite-scroll-disabled="blogList.length >= total" @scroll="scrollHandler" ref="articleRef">
+  <div class="wrapper" v-infinite-scroll="load" :infinite-scroll-distance="400" :infinite-scroll-disabled="blogList.length >= total" @scroll="scrollHandler" ref="articleRef">
     <div class="article">
       <el-empty description="暂无内容" v-if="blogList.length == 0 && loading != true" class="empty" />
       <el-skeleton :loading="loading" animated>
@@ -32,7 +32,7 @@
           </div>
         </template>
         <template #default>
-          <div class="article__item" v-for="item in blogList" :key="item.id" @click="viewDetailHandler(item.id)" v-visible>
+          <div class="article__item" v-for="(item, index) in blogList" :key="item.id" @click="viewDetailHandler(item.id)" v-visible="index">
             <div class="title">
               <span>
                 {{ item.title }}
@@ -112,6 +112,8 @@ async function getBlogList() {
   blogList.value = res.data.blogList
   total.value = res.data.total
   loading.value = false
+  //回到顶部
+  articleRef.value.scrollTop = 0
 }
 
 /**
@@ -136,8 +138,6 @@ async function getMoreBlog() {
 emitter.on('blogConfigChanged', () => {
   //重置页数
   blogStore.blogQueryConfig.pageNum = 1
-  //回到顶部
-  articleRef.value.scrollTop = 0
   //获取新数据
   getBlogList()
 })
@@ -155,9 +155,10 @@ function viewDetailHandler(blogId: string) {
 <style lang="scss" scoped>
 .wrapper {
   box-sizing: border-box;
-  margin: 0 0.625rem 0.625rem;
+  margin: 0 0.625rem;
   max-height: 100vh;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 0;
