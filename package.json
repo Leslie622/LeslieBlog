@@ -15,6 +15,7 @@
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.18",
     "axios": "^1.6.7",
+    "browser-tool": "^1.2.2",
     "element-plus": "^2.5.6",
     "mitt": "^3.0.1",
     "normalize.css": "^8.0.1",

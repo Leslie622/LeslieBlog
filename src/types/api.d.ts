@@ -72,3 +72,10 @@ namespace User {
     introduce: string
   }
 }
+
+namespace Visitor {
+  type info = {
+    system: string
+    browser:string
+  }
+}

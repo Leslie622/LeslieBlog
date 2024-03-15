@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import emitter from '@/utils/mitt'
+import { getUserAgent } from '@/track/index'
 
 const route = useRoute()
 const isTransition = ref<boolean>(false) //初始不开启动画
@@ -52,6 +53,11 @@ function pullupHeader() {
   emitter.emit('pullupBlogConfig')
   emitter.emit('pullupHeader')
 }
+
+/**
+ * 埋点：进入网站获取用户设备信息
+ */
+getUserAgent()
 </script>
 
 <style>
@@ -87,3 +93,4 @@ body {
   transform: translateX(-100%);
 }
 </style>
+@/track/index
