@@ -41,6 +41,7 @@ export default {
 </script>
 <script setup lang="ts">
 import apiBlog from '@/api/modules/blog'
+import VMdPreview from '@/utils/md-preview'
 
 const loading = ref(true)
 const route = useRoute()

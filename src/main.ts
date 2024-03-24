@@ -13,8 +13,6 @@ import 'normalize.css'
 import '@/assets/styles/globals.scss'
 //自定义指令
 import directives from '@/directives/index'
-//markdown预览组件
-import VMdPreview from './utils/md-preview'
 
 const app = createApp(App)
 //图片前缀
@@ -23,6 +21,5 @@ app.config.globalProperties.$ImgPrefix = txCos.imgPrefix
 app.use(createPinia())
 app.use(router)
 app.use(directives)
-app.use(VMdPreview)
 
 app.mount('#app')
